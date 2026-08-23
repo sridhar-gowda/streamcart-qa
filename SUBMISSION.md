@@ -1,8 +1,8 @@
 # Submission — StreamCart QA framework
 
 **Candidate:** Sridhar Basavanapura
-**Video walkthrough:** _link to be added_ <!-- Google Drive / Loom / YouTube (unlisted) -->
-**Repository:** _GitHub link to be added_
+**Video walkthrough:** https://drive.google.com/file/d/102cFhBQMqgQ62UWuOYipe6SYwWhmzGs9/view?usp=sharing
+**Repository:** https://github.com/sridhar-gowda/streamcart-qa.git
 
 ## Where to look
 
@@ -59,9 +59,9 @@ Work sessions: Saturday 10:00-14:00 and 18:00-22:00, Sunday 10:00-12:00 and 20:0
 - **Screenplay on top of small Pages** instead of classic page objects with flow methods. One
   composition rule for the whole team, pages small enough to review per screen, and no second
   page-shaped API growing next to the first.
-- **Flakiness reported per run, no local history.** A pass on retry is reported as *flaky* in
+- **Flakiness reported per run.** A pass on retry is reported as *flaky* in
   every report format. Trends across runs are left to the CI analytics or test-management tool
-  that receives every run results — not to a local database that dies with the runner.
+  that receives every run results.
 - **Delivery-verified input in the web adapter.** When a managed browser silently drops a click
   or a keystroke, the adapter falls back to a DOM event and counts it as an environment signal.
   It is extra machinery; it is isolated in one adapter and a team on clean infrastructure can
@@ -78,3 +78,5 @@ Work sessions: Saturday 10:00-14:00 and 18:00-22:00, Sunday 10:00-12:00 and 20:0
 3. Visual and accessibility checks as Tasks and Questions on the same Screenplay layer.
 4. A step-through debugging mode beyond `--headed` (pause on failure with the page source open).
 5. A separate configuration repository once more than one product repository uses the platform.
+6. Testing of Allure - reports in depth with flaky category and screenshots. 
+7. Test CI - executions
