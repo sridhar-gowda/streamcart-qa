@@ -1,0 +1,23 @@
+# Personas: who the actors in the scenarios are.
+# Usernames and descriptions only. Passwords are NEVER stored here — they come from the
+# environment (see .env.example: STREAMCART_USERS__DEFAULT__PASSWORD, or per persona
+# STREAMCART_USERS__<KEY>__PASSWORD).
+personas:
+  standard:
+    username: standard_user
+    description: A normal customer — the default persona for most scenarios.
+  locked_out:
+    username: locked_out_user
+    description: An account that has been locked; login is refused with a specific message.
+  problem:
+    username: problem_user
+    description: Sees a UI with intentional defects (wrong images, broken sorting).
+  performance_glitch:
+    username: performance_glitch_user
+    description: Experiences slow responses from the application.
+  error:
+    username: error_user
+    description: Hits random errors during flows.
+  visual:
+    username: visual_user
+    description: Sees visual differences in the UI.
