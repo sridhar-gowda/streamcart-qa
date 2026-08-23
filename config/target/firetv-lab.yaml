@@ -1,0 +1,6 @@
+# Fire TV Stick on the lab network (ADB over TCP), Appium on the runner.
+mobile:
+  appium_url: http://127.0.0.1:4723
+  device_name: Fire TV Stick 4K
+  udid: 192.168.10.42:5555
+  app: builds/streamcart-firetv-debug.apk

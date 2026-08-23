@@ -1,0 +1,10 @@
+# Cloud grid. Credentials come from STREAMCART_WEB__REMOTE_URL (which embeds the
+# user:key) — never from this file.
+web:
+  browser: chrome
+  headless: false
+  capabilities:
+    bstack:options:
+      os: Windows
+      osVersion: "11"
+      projectName: StreamCart

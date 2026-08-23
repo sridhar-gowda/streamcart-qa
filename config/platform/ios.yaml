@@ -1,0 +1,8 @@
+# iOS: native SwiftUI app via Appium XCUITest. Touch + gesture navigation.
+mobile:
+  automation_name: XCUITest
+  bundle_id: com.streamcart.ios
+  new_command_timeout: 120
+timeouts:
+  default: 15
+  page_load: 45

@@ -1,0 +1,6 @@
+# iOS Simulator on a macOS runner.
+mobile:
+  appium_url: http://127.0.0.1:4723
+  device_name: iPhone 15
+  platform_version: "17.4"
+  app: builds/StreamCart.app

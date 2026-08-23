@@ -1,0 +1,7 @@
+# Web: React SPA in a desktop browser. Pointer + keyboard, URL navigation.
+web:
+  browser: chrome
+  headless: true
+  window_size: [1440, 900]
+  page_load_strategy: normal
+  extra_args: []

@@ -1,0 +1,5 @@
+app:
+  base_url: https://www.saucedemo.com
+artifacts:
+  always: true               # production verification keeps evidence for every test
+  retention_days: 90

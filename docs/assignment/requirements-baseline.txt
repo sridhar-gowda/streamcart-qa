@@ -1,0 +1,11 @@
+# QA Architect Assignment — Baseline Constraints
+#
+# These are the ONLY hard requirements. All other library choices are yours.
+#
+# You should create your own requirements.txt with your chosen dependencies.
+# This file exists only to document the constraints.
+
+# Python 3.10+ required (for modern type hints, match statements, etc.)
+# pytest is the required test runner — all other choices are yours to make and justify.
+
+pytest>=7.0

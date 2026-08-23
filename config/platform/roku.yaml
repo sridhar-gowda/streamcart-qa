@@ -1,0 +1,9 @@
+# Roku: BrightScript / SceneGraph channel driven over the External Control
+# Protocol (HTTP). Element identification is SceneGraph XML, not a DOM.
+tv:
+  ecp_port: 8060
+  channel_id: dev          # sideloaded channel
+  keypress_delay: 0.2
+timeouts:
+  default: 20              # ECP query + render round-trips are slow
+  focus_settle: 0.5

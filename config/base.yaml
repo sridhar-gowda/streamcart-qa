@@ -1,0 +1,44 @@
+# Shared defaults for every platform, target and environment.
+# Selectors (platform / env / target) are NOT set here — they are chosen on the
+# command line or via STREAMCART_PLATFORM / STREAMCART_ENV / STREAMCART_TARGET.
+# Secrets are NEVER set in YAML — see .env.example.
+
+team: streamcart-qa
+
+app:
+  name: StreamCart
+  deep_link_scheme: "streamcart://"
+
+timeouts:
+  default: 10
+  page_load: 30
+  script: 30
+  poll_interval: 0.25
+  focus_settle: 0.3
+
+report:
+  root: reports               # product runs: <root>/runs/<run-id>/ ; framework runs: <root>/framework/<run-id>/
+  kind: auto                  # auto | product | framework
+  html: true                  # report.html — engineers: triage with Category/Attempts columns and screenshots
+  junit: true                 # junit.xml — CI systems, dashboards, TMS importers
+  cucumber_json: true         # cucumber.json — BDD tooling, Cucumber reports, Xray/Zephyr Gherkin import
+  allure: true                # allure-results/ — feature -> scenario -> step results for product stakeholders
+  allure_html: true           # allure-report/index.html generated from them when the Allure CLI is installed
+  summary: true               # summary.md — the run at a glance, for PRs and chat
+
+artifacts:
+  on_failure: true
+  always: false
+  screenshot: true
+  page_source: true
+  console_logs: true
+  store: local
+  retention_days: 30
+
+retry:
+  max_attempts: 2            # one retry, and only for environment failures
+  only_categories: [environment]
+
+tms:
+  provider: none             # xray | codebeamer | none — the adapter is selected here
+  upload: false

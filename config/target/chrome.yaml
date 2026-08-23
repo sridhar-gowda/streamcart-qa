@@ -1,0 +1,4 @@
+# Default web target: local headless Chrome via Selenium Manager (no driver install).
+web:
+  browser: chrome
+  headless: true

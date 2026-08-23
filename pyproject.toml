@@ -1,0 +1,157 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streamcart-qa"
+version = "0.1.0"
+readme = "README.md"
+description = "StreamCart multi-platform test automation framework (Web · Mobile · TV) on a pytest execution platform"
+requires-python = ">=3.10"
+authors = [{ name = "streamcart-qa" }]
+keywords = ["pytest", "selenium", "appium", "screenplay", "bdd", "test-automation"]
+dependencies = [
+    "pytest>=8.0,<10",
+    "pydantic>=2.7,<3",
+    "pydantic-settings>=2.4,<3",
+    "PyYAML>=6.0,<7",
+    "selenium>=4.20,<5",
+    "pytest-bdd>=7.3,<9",
+    "pytest-xdist>=3.6,<4",
+    "pytest-rerunfailures>=14,<17",
+    "pytest-html>=4.1,<5",
+    "allure-pytest-bdd>=2.13,<3",
+    "typing-extensions>=4.10",
+]
+
+[project.optional-dependencies]
+# Quality gates — not needed to run the suite.
+dev = [
+    "ruff>=0.6",
+    "mypy>=1.10",
+    "import-linter>=2.0",
+    "pre-commit>=3.7",
+    "types-PyYAML",
+    "pytest-split>=0.9",
+    "pytest-repeat>=0.9",
+]
+# Real device automation. The mobile/TV adapters import these lazily, so the
+# framework installs and runs Web tests without them.
+mobile = ["Appium-Python-Client>=4,<6"]
+
+# The execution platform registers itself with pytest on install.
+[project.entry-points.pytest11]
+streamcart = "streamcart_pytest.plugin"
+
+# CI glue between sessions: merge shard run-results files, publish, locate the last run.
+[project.scripts]
+streamcart = "streamcart_pytest.cli:main"
+
+# Third-party packages can contribute platform drivers without touching this repo.
+# [project.entry-points."streamcart.platforms"]
+# roku = "my_package.roku_driver"
+
+[tool.setuptools.packages.find]
+include = ["streamcart*"]
+exclude = ["tests*"]
+
+# ---------------------------------------------------------------------------
+# pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "8.0"
+# `pytest` runs the product suite (features/ via tests/steps). The framework's own tests are a
+# separate concern with a separate report: `pytest tests/framework`.
+testpaths = ["tests/steps"]
+pythonpath = ["."]
+bdd_features_base_dir = "features"
+addopts = "-ra --strict-markers --strict-config"
+xfail_strict = true
+log_level = "INFO"
+log_format = "%(asctime)s %(levelname)-7s %(name)s run=%(run_id)s test=%(test_id)s :: %(message)s"
+log_date_format = "%H:%M:%S"
+filterwarnings = ["error::DeprecationWarning:streamcart.*"]
+
+# ---------------------------------------------------------------------------
+# ruff — lint + format. The banned-api rules are architectural guardrails:
+# the assignment disqualifies time.sleep() and raw Selenium outside the
+# adapter layer, so we make both impossible to merge rather than merely
+# discouraged.
+# ---------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+extend-exclude = [".venv", "reports"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM", "TID", "PT", "RUF"]
+ignore = ["RUF012"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"time.sleep".msg = "Fixed sleeps are banned. Use streamcart.core.waits (condition-based waits)."
+"selenium".msg = "Selenium may only be imported inside streamcart/core/driver/adapters/. Pages, tasks and tests talk to the PlatformDriver protocol."
+"appium".msg = "Appium may only be imported inside streamcart/core/driver/adapters/."
+
+[tool.ruff.lint.per-file-ignores]
+# The single sanctioned sleep: the polling primitive that *is* the wait strategy.
+"streamcart/core/waits.py" = ["TID251"]
+# The containment layer — the only place automation libraries are allowed.
+"streamcart/core/driver/adapters/*" = ["TID251"]
+"tests/**" = ["PT004", "PT005"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["streamcart", "streamcart_pytest"]
+
+# ---------------------------------------------------------------------------
+# import-linter — the layer rules as enforceable contracts (`lint-imports`).
+# ---------------------------------------------------------------------------
+[tool.importlinter]
+root_packages = ["streamcart", "streamcart_pytest"]
+include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Layers: execution platform -> screenplay -> ui | testdata -> core"
+type = "layers"
+layers = [
+    "streamcart_pytest",
+    "streamcart.screenplay",
+    "streamcart.ui | streamcart.testdata",
+    "streamcart.core",
+]
+
+[[tool.importlinter.contracts]]
+name = "Automation libraries are contained in core.driver.adapters"
+type = "forbidden"
+source_modules = ["streamcart", "streamcart_pytest"]
+forbidden_modules = ["selenium", "appium"]
+# External packages are recorded at their top level (selenium, appium), hence no ".**" on the right.
+ignore_imports = [
+    "streamcart.core.driver.adapters.* -> selenium",
+    "streamcart.core.driver.adapters.* -> appium",
+]
+
+[[tool.importlinter.contracts]]
+name = "The framework never depends on the execution platform"
+type = "forbidden"
+source_modules = ["streamcart"]
+forbidden_modules = ["streamcart_pytest"]
+
+# ---------------------------------------------------------------------------
+# mypy
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.10"
+strict = true
+plugins = ["pydantic.mypy"]
+packages = ["streamcart", "streamcart_pytest"]
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ["streamcart.core.driver.adapters.*"]
+# Library stubs for Selenium/Appium are incomplete; keep the adapter layer
+# typed but don't fail on their Any-returning calls.
+warn_return_any = false
+
+[[tool.mypy.overrides]]
+module = ["appium.*", "pytest_html.*", "allure_commons.*", "allure_pytest_bdd.*"]
+ignore_missing_imports = true

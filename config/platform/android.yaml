@@ -1,0 +1,9 @@
+# Android: native Kotlin app via Appium UiAutomator2. Touch + hardware back.
+mobile:
+  automation_name: UiAutomator2
+  app_package: com.streamcart.android
+  app_activity: .MainActivity
+  new_command_timeout: 120
+timeouts:
+  default: 15          # screen transitions and animations are slower than DOM readiness
+  page_load: 45

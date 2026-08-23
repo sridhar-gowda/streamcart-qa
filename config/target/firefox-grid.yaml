@@ -1,0 +1,6 @@
+# Selenium Grid running Firefox (`selenium/standalone-firefox`). The browser is part of the target:
+# a report for this target is always a Firefox report. Override the endpoint with STREAMCART_WEB__REMOTE_URL.
+web:
+  browser: firefox
+  headless: true
+  remote_url: http://localhost:4444

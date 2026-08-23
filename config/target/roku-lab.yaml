@@ -1,0 +1,3 @@
+# Roku device on the lab network. ECP is plain HTTP — the runner only needs LAN access.
+tv:
+  ecp_host: 192.168.10.50

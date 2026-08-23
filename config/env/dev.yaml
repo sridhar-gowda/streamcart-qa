@@ -1,0 +1,4 @@
+# StreamCart's dev environment. For this assessment every environment points at
+# SauceDemo, the public stand-in; a real product would differ per env.
+app:
+  base_url: https://www.saucedemo.com

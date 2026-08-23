@@ -1,0 +1,4 @@
+app:
+  base_url: https://www.saucedemo.com
+tms:
+  upload: true               # staging runs are the ones recorded in the TMS

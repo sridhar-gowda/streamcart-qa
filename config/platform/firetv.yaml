@@ -1,0 +1,11 @@
+# Fire TV: Android (Fire OS) via Appium UiAutomator2, but a remote-control UI.
+# select() = move focus with the d-pad, then press OK. No touch, no hover.
+mobile:
+  automation_name: UiAutomator2
+  app_package: com.streamcart.firetv
+  app_activity: .MainActivity
+tv:
+  keypress_delay: 0.15
+timeouts:
+  default: 15
+  focus_settle: 0.4

@@ -1,0 +1,4 @@
+# Watch the browser while developing: pytest --target chrome-headed
+web:
+  browser: chrome
+  headless: false

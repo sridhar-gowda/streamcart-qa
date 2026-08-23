@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments — anchored to the root: config/env/ is the environment configuration layer
+/.venv/
+/venv/
+/ENV/
+/env/
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# pytest
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# Allure reports (anywhere but the tracked examples under reports/examples/)
+/allure-results/
+/allure-report/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files (candidates should use these, not hardcode)
+.env
+.env.local
+.env.*.local
+
+# StreamCart QA — local-only files
+.env
+config/local.yaml
+reports/*
+!reports/examples/
+artifacts/
+.mypy_cache/
+.ruff_cache/
+
+# Claude Code local settings
+.claude/

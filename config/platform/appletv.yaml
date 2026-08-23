@@ -1,0 +1,10 @@
+# Apple TV: tvOS / SwiftUI via Appium XCUITest. Siri Remote: swipe-to-focus,
+# click-to-select, menu = back.
+mobile:
+  automation_name: XCUITest
+  bundle_id: com.streamcart.tvos
+tv:
+  keypress_delay: 0.15
+timeouts:
+  default: 15
+  focus_settle: 0.4
