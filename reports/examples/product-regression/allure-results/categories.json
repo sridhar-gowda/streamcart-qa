@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Product defect",
+    "matchedStatuses": [
+      "failed"
+    ],
+    "traceRegex": "(?s).*AssertionError.*"
+  },
+  {
+    "name": "UI contract (locator or UI change \u2014 triage)",
+    "matchedStatuses": [
+      "failed",
+      "broken"
+    ],
+    "traceRegex": "(?s).*(ElementNotFoundError|ElementNotInteractableError|ConditionTimeoutError|LocatorNotDefinedError).*"
+  },
+  {
+    "name": "Environment (session, network, app unavailable)",
+    "matchedStatuses": [
+      "failed",
+      "broken"
+    ],
+    "traceRegex": "(?s).*(DriverSessionError|AppUnreachableError|ConnectionError|URLError).*"
+  },
+  {
+    "name": "Test defect (configuration or framework misuse)",
+    "matchedStatuses": [
+      "failed",
+      "broken"
+    ],
+    "traceRegex": "(?s).*(ConfigurationError|CapabilityNotSupportedError|MissingAbilityError).*"
+  },
+  {
+    "name": "Known issue / quarantined",
+    "matchedStatuses": [
+      "skipped"
+    ],
+    "messageRegex": "(?s).*(known issue|quarantined).*"
+  },
+  {
+    "name": "Flaky (passed only on retry)",
+    "matchedStatuses": [
+      "passed"
+    ],
+    "flaky": true
+  }
+]

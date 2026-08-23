@@ -1,0 +1,5 @@
+21:32:19 INFO    streamcart.driver.web run=product-regression test=- :: Started chrome (local) headless=True
+21:32:19 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to log in as 'standard_user'
+21:32:20 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+21:32:20 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCartBadgeCount -> 1
+21:32:20 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks the product 'Sauce Labs Backpack' -> ProductSummary(name='Sauce Labs Backpack', description='carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.', price=Decimal('29.99'), image_source='https://www.saucedemo.com/assets/sauce-backpack-1200x1500-CjRW-Djj.jpg', in_cart=True)

@@ -1,0 +1,47 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\.venv\Scripts\python.exe
+streamcart: platform=web (web) | env=dev | target=edge | base_url=https://www.saucedemo.com | run_id=product-sharded
+streamcart: config C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\config :: base.yaml -> platform/web.yaml -> target/edge.yaml -> env/dev.yaml
+streamcart: product run -> reports\runs\product-sharded
+metadata: {'Python': '3.12.4', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'streamcart-qa': '0.1.0', 'allure-pytest-bdd': '2.16.0', 'bdd': '8.1.0', 'html': '4.2.0', 'metadata': '3.1.1', 'repeat': '0.9.4', 'rerunfailures': '16.6', 'split': '0.11.0', 'xdist': '3.8.0'}, 'JAVA_HOME': 'C:\\Program Files\\Java\\jdk-23'}
+rootdir: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment
+configfile: pyproject.toml
+testpaths: tests/steps
+plugins: streamcart-qa-0.1.0, allure-pytest-bdd-2.16.0, bdd-8.1.0, html-4.2.0, metadata-3.1.1, repeat-0.9.4, rerunfailures-16.6, split-0.11.0, xdist-3.8.0
+collecting ... 
+
+[pytest-split] Splitting tests with algorithm: duration_based_chunks
+[pytest-split] Running group 2/2 (estimated duration: 128.07s)
+
+collected 31 items / 14 deselected / 17 selected
+streamcart: 1 scenario(s) skipped: platform 'web' lacks a capability
+
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (high to low)-price-descending] PASSED [  5%]
+tests/steps/test_inventory.py::test_adding_a_product_updates_the_cart_badge PASSED [ 11%]
+tests/steps/test_inventory.py::test_a_product_can_be_removed_again_from_the_catalogue PASSED [ 17%]
+tests/steps/test_inventory.py::test_the_cart_keeps_its_contents_while_the_customer_keeps_browsing PASSED [ 23%]
+tests/steps/test_login.py::test_a_customer_with_valid_credentials_reaches_the_products PASSED [ 29%]
+tests/steps/test_login.py::test_wrong_credentials_are_refused PASSED     [ 35%]
+tests/steps/test_login.py::test_a_lockedout_account_is_refused_with_a_specific_message PASSED [ 41%]
+tests/steps/test_login.py::test_missing_credentials_are_reported[-anything-Username is required] PASSED [ 47%]
+tests/steps/test_login.py::test_missing_credentials_are_reported[standard_user--Password is required] PASSED [ 52%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[standard] PASSED [ 58%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[problem] PASSED [ 64%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[error] PASSED [ 70%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[visual] PASSED [ 76%]
+tests/steps/test_login.py::test_an_account_with_slow_responses_can_still_sign_in PASSED [ 82%]
+tests/steps/test_platform_divergence.py::test_signing_in_by_pressing_enter_on_a_physical_keyboard PASSED [ 88%]
+tests/steps/test_platform_divergence.py::test_swiping_through_the_catalogue_on_a_touch_screen SKIPPED [ 94%]
+tests/steps/test_purchase_journey.py::test_a_customer_buys_a_backpack_end_to_end PASSED [100%]
+
+- generated json file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-sharded\cucumber.json -
+- generated xml file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-sharded\junit.xml -
+=========================== streamcart run summary ============================
+run product-sharded | web/edge | dev | passed=16 skipped=1
+ok local: reports\runs\product-sharded\run-results.json
+ok allure-report: reports\runs\product-sharded\allure-report\index.html
+reports: reports\runs\product-sharded
+- Generated html report: file:///C:/Users/SBasavanapura/PROJECTS/personal/qa-architect-assignment/qa-architect-assignment/reports/runs/product-sharded/report.html -
+=========================== short test summary info ===========================
+SKIPPED [1] .venv\Lib\site-packages\pytest_bdd\scenario.py:296: platform 'web' lacks capability: swipe
+=========== 16 passed, 1 skipped, 14 deselected in 88.66s (0:01:28) ===========

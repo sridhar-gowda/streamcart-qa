@@ -1,0 +1,5 @@
+21:32:54 INFO    streamcart.driver.web run=product-regression test=- :: Started chrome (local) headless=True
+21:32:54 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to open the LoginPage
+21:32:55 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to log in as 'standard_user'
+21:32:55 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCurrentScreen -> <Screen.LOGIN: 'login'>
+21:32:55 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheLoginError -> 'Epic sadface: Password is required'

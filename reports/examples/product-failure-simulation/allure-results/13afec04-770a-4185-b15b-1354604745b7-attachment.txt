@@ -1,0 +1,3 @@
+21:34:07 INFO    streamcart.driver.web run=product-failure-simulation test=- :: Started chrome (local) headless=True
+21:34:07 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to log in as 'standard_user'
+21:34:08 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to add to the cart: 'Sauce Labs Teleporter'

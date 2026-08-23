@@ -1,0 +1,165 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\.venv\Scripts\python.exe
+streamcart: platform=web (web) | env=dev | target=chrome | base_url=https://www.saucedemo.com | run_id=product-failure-simulation
+streamcart: config C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\config :: base.yaml -> platform/web.yaml -> target/chrome.yaml -> env/dev.yaml
+streamcart: product run -> reports\runs\product-failure-simulation
+metadata: {'Python': '3.12.4', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'streamcart-qa': '0.1.0', 'allure-pytest-bdd': '2.16.0', 'bdd': '8.1.0', 'html': '4.2.0', 'metadata': '3.1.1', 'repeat': '0.9.4', 'rerunfailures': '16.6', 'split': '0.11.0', 'xdist': '3.8.0'}, 'JAVA_HOME': 'C:\\Program Files\\Java\\jdk-23'}
+rootdir: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment
+configfile: pyproject.toml
+plugins: streamcart-qa-0.1.0, allure-pytest-bdd-2.16.0, bdd-8.1.0, html-4.2.0, metadata-3.1.1, repeat-0.9.4, rerunfailures-16.6, split-0.11.0, xdist-3.8.0
+collecting ... collected 7 items
+streamcart: 1 scenario(s) skipped: platform 'web' lacks a capability
+
+failure_simulation/test_failure_simulation.py::test_a_passing_scenario PASSED [ 14%]
+failure_simulation/test_failure_simulation.py::test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2 FAILED [ 28%]
+failure_simulation/test_failure_simulation.py::test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist FAILED [ 42%]
+failure_simulation/test_failure_simulation.py::test_an_environment_failure_that_passes_on_retry__reported_as_flaky RERUN [ 57%]
+failure_simulation/test_failure_simulation.py::test_an_environment_failure_that_passes_on_retry__reported_as_flaky PASSED [ 57%]
+failure_simulation/test_failure_simulation.py::test_a_known_issue_tracked_in_ticket_sc42__fails_without_blocking_the_build XFAIL [ 71%]
+failure_simulation/test_failure_simulation.py::test_a_quarantined_scenario__fails_without_blocking_the_build XFAIL [ 85%]
+failure_simulation/test_failure_simulation.py::test_a_scenario_this_platform_cannot_run__skipped_with_the_reason SKIPPED [100%]
+
+================================== FAILURES ===================================
+__ test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2 ___
+
+fixturefunc = <function cart_badge_shows at 0x000002CDC9C877E0>
+request = <FixtureRequest for <Function test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2>>
+kwargs = {'count': 2, 'customer': <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>}
+
+    def call_fixture_func(
+        fixturefunc: _FixtureFunc[FixtureValue], request: FixtureRequest, kwargs
+    ) -> FixtureValue:
+        if inspect.isgeneratorfunction(fixturefunc):
+            fixturefunc = cast(Callable[..., Generator[FixtureValue]], fixturefunc)
+            generator = fixturefunc(**kwargs)
+            try:
+                fixture_result = next(generator)
+            except StopIteration:
+                raise ValueError(f"{request.fixturename} did not yield a value") from None
+            finalizer = functools.partial(_teardown_yield_fixture, fixturefunc, generator)
+            request.addfinalizer(finalizer)
+        else:
+            fixturefunc = cast(Callable[..., FixtureValue], fixturefunc)
+>           fixture_result = fixturefunc(**kwargs)
+                             ^^^^^^^^^^^^^^^^^^^^^
+
+.venv\Lib\site-packages\_pytest\fixtures.py:1005: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+customer = <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>
+count = 2
+
+    @then(parsers.parse("the cart badge shows {count:d}"))
+    def cart_badge_shows(customer: Actor, count: int) -> None:
+>       assert customer.asks(TheCartBadgeCount()) == count
+E       AssertionError: assert 1 == 2
+E        +  where 1 = asks(<streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0>)
+E        +    where asks = <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>.asks
+E        +    and   <streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0> = TheCartBadgeCount()
+
+tests\steps\common_steps.py:57: AssertionError
+------------------------------ Captured log call ------------------------------
+21:34:02 INFO    streamcart.driver.web run=product-failure-simulation test=- :: Started chrome (local) headless=True
+21:34:02 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to log in as 'standard_user'
+21:34:02 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+21:34:03 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer asks TheCartBadgeCount -> 1
+___ test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist ___
+
+fixturefunc = <function adds_to_cart at 0x000002CDC9CB68E0>
+request = <FixtureRequest for <Function test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist>>
+kwargs = {'products': ['Sauce Labs Teleporter'], 'customer': <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>}
+
+    def call_fixture_func(
+        fixturefunc: _FixtureFunc[FixtureValue], request: FixtureRequest, kwargs
+    ) -> FixtureValue:
+        if inspect.isgeneratorfunction(fixturefunc):
+            fixturefunc = cast(Callable[..., Generator[FixtureValue]], fixturefunc)
+            generator = fixturefunc(**kwargs)
+            try:
+                fixture_result = next(generator)
+            except StopIteration:
+                raise ValueError(f"{request.fixturename} did not yield a value") from None
+            finalizer = functools.partial(_teardown_yield_fixture, fixturefunc, generator)
+            request.addfinalizer(finalizer)
+        else:
+            fixturefunc = cast(Callable[..., FixtureValue], fixturefunc)
+>           fixture_result = fixturefunc(**kwargs)
+                             ^^^^^^^^^^^^^^^^^^^^^
+
+.venv\Lib\site-packages\_pytest\fixtures.py:1005: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\steps\inventory_steps.py:19: in adds_to_cart
+    customer.attempts_to(AddToCart.items(*products))
+streamcart\screenplay\actor.py:95: in attempts_to
+    task.perform_as(self)
+streamcart\screenplay\tasks\inventory.py:30: in perform_as
+    if not card.is_in_cart():
+           ^^^^^^^^^^^^^^^^^
+streamcart\ui\components\product_card.py:68: in is_in_cart
+    return self.cart_button_label == REMOVE_LABEL
+           ^^^^^^^^^^^^^^^^^^^^^^
+streamcart\ui\components\product_card.py:65: in cart_button_label
+    return self.cart_button.label
+           ^^^^^^^^^^^^^^^^
+streamcart\ui\components\product_card.py:61: in cart_button
+    return Button(self.driver, self.CART_BUTTON, within=self.root)
+                                                        ^^^^^^^^^
+streamcart\ui\base.py:51: in root
+    return self._scope_find(self._root_locator, timeout=None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+streamcart\ui\base.py:56: in _scope_find
+    return self.driver.find(locator, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+streamcart\core\driver\adapters\web_selenium.py:284: in find
+    return WebElementHandle(self, self._locate(locator, timeout=timeout), locator)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <SeleniumWebDriver platform=web>
+locator = Locator(name="product card 'Sauce Labs Teleporter'"), timeout = None
+within = None
+
+    def _locate(self, locator: Locator, *, timeout: float | None, within: WebElement | None = None) -> WebElement:
+        by, value = self._resolve(locator.for_platform(self.platform))
+        scope = within if within is not None else self._raw
+        effective = self.wait.timeout if timeout is None else timeout
+        try:
+            with self._translating(f"find {locator}"):
+                return self.wait.until(
+                    lambda: scope.find_element(by, value),
+                    timeout=effective,
+                    message=f"find {locator}",
+                    ignored=(NoSuchElementException, StaleElementReferenceException),
+                )
+        except ConditionTimeoutError:
+>           raise ElementNotFoundError(locator, self.platform, effective) from None
+E           streamcart.core.errors.ElementNotFoundError: Element 'product card 'Sauce Labs Teleporter'' not found on web within 10.0s using xpath="//*[@data-test='inventory-item'][.//*[@data-test='inventory-item-name'][normalize-space()='Sauce Labs Teleporter']]".
+
+streamcart\core\driver\adapters\web_selenium.py:262: ElementNotFoundError
+------------------------------ Captured log call ------------------------------
+21:34:07 INFO    streamcart.driver.web run=product-failure-simulation test=- :: Started chrome (local) headless=True
+21:34:07 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to log in as 'standard_user'
+21:34:08 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to add to the cart: 'Sauce Labs Teleporter'
+- generated json file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-failure-simulation\cucumber.json -
+- generated xml file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-failure-simulation\junit.xml -
+=========================== streamcart run summary ============================
+run product-failure-simulation | web/chrome | dev | passed=2 failed=2 skipped=1 xfailed=2
+failures by category: product=2, ui-contract=1, known-issue=1
+  [product] failure_simulation/test_failure_simulation.py::test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2: AssertionError: assert 1 == 2
+  [product] failure_simulation/test_failure_simulation.py::test_a_quarantined_scenario__fails_without_blocking_the_build: AssertionError: assert 1 == 4
+  [ui-contract] failure_simulation/test_failure_simulation.py::test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist: streamcart.core.errors.ElementNotFoundError: Element 'product card 'Sauce Labs Teleporter'' not found on web within 10.0
+  [known-issue] failure_simulation/test_failure_simulation.py::test_a_known_issue_tracked_in_ticket_sc42__fails_without_blocking_the_build: AssertionError: assert 1 == 3
+flaky (passed only on retry): 1
+  failure_simulation/test_failure_simulation.py::test_an_environment_failure_that_passes_on_retry__reported_as_flaky (attempt 2)
+quarantined (non-blocking): 1
+ok local: reports\runs\product-failure-simulation\run-results.json
+ok allure-report: reports\runs\product-failure-simulation\allure-report\index.html
+reports: reports\runs\product-failure-simulation
+- Generated html report: file:///C:/Users/SBasavanapura/PROJECTS/personal/qa-architect-assignment/qa-architect-assignment/reports/runs/product-failure-simulation/report.html -
+=========================== short test summary info ===========================
+SKIPPED [1] .venv\Lib\site-packages\pytest_bdd\scenario.py:296: platform 'web' lacks capability: swipe
+XFAIL failure_simulation/test_failure_simulation.py::test_a_known_issue_tracked_in_ticket_sc42__fails_without_blocking_the_build - known issue SC-42
+XFAIL failure_simulation/test_failure_simulation.py::test_a_quarantined_scenario__fails_without_blocking_the_build - quarantined (tagged @quarantine)
+FAILED failure_simulation/test_failure_simulation.py::test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2
+FAILED failure_simulation/test_failure_simulation.py::test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist
+========= 2 failed, 2 passed, 1 skipped, 2 xfailed, 1 rerun in 47.29s =========

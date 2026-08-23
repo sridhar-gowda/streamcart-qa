@@ -1,0 +1,42 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\.venv\Scripts\python.exe
+streamcart: platform=web (web) | env=dev | target=edge | base_url=https://www.saucedemo.com | run_id=product-sharded
+streamcart: config C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\config :: base.yaml -> platform/web.yaml -> target/edge.yaml -> env/dev.yaml
+streamcart: product run -> reports\runs\product-sharded
+metadata: {'Python': '3.12.4', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'streamcart-qa': '0.1.0', 'allure-pytest-bdd': '2.16.0', 'bdd': '8.1.0', 'html': '4.2.0', 'metadata': '3.1.1', 'repeat': '0.9.4', 'rerunfailures': '16.6', 'split': '0.11.0', 'xdist': '3.8.0'}, 'JAVA_HOME': 'C:\\Program Files\\Java\\jdk-23'}
+rootdir: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment
+configfile: pyproject.toml
+testpaths: tests/steps
+plugins: streamcart-qa-0.1.0, allure-pytest-bdd-2.16.0, bdd-8.1.0, html-4.2.0, metadata-3.1.1, repeat-0.9.4, rerunfailures-16.6, split-0.11.0, xdist-3.8.0
+collecting ... 
+
+[pytest-split] Splitting tests with algorithm: duration_based_chunks
+[pytest-split] Running group 1/2 (estimated duration: 136.55s)
+
+collected 31 items / 17 deselected / 14 selected
+streamcart: 1 scenario(s) skipped: platform 'web' lacks a capability
+
+tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details PASSED [  7%]
+tests/steps/test_cart.py::test_a_product_can_be_removed_from_the_cart PASSED [ 14%]
+tests/steps/test_cart.py::test_the_customer_can_go_back_to_shopping PASSED [ 21%]
+tests/steps/test_cart.py::test_the_customer_can_proceed_to_checkout PASSED [ 28%]
+tests/steps/test_checkout.py::test_every_shipping_field_is_required[-Lovelace-SW1A 1AA-First Name is required] PASSED [ 35%]
+tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada--SW1A 1AA-Last Name is required] PASSED [ 42%]
+tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada-Lovelace--Postal Code is required] PASSED [ 50%]
+tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals PASSED [ 57%]
+tests/steps/test_checkout.py::test_a_completed_order_is_confirmed PASSED [ 64%]
+tests/steps/test_checkout.py::test_checkout_can_be_cancelled_back_to_the_cart PASSED [ 71%]
+tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details PASSED [ 78%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (A to Z)-name-ascending] PASSED [ 85%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (Z to A)-name-descending] PASSED [ 92%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (low to high)-price-ascending] PASSED [100%]
+
+- generated json file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-sharded\cucumber.json -
+- generated xml file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-sharded\junit.xml -
+=========================== streamcart run summary ============================
+run product-sharded | web/edge | dev | passed=14
+ok local: reports\runs\product-sharded\run-results.json
+ok allure-report: reports\runs\product-sharded\allure-report\index.html
+reports: reports\runs\product-sharded
+- Generated html report: file:///C:/Users/SBasavanapura/PROJECTS/personal/qa-architect-assignment/qa-architect-assignment/reports/runs/product-sharded/report.html -
+================ 14 passed, 17 deselected in 89.16s (0:01:29) =================

@@ -1,0 +1,4 @@
+21:37:51 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:37:51 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the LoginPage
+21:37:51 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user' using the keyboard
+21:37:52 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCurrentScreen -> <Screen.INVENTORY: 'inventory'>

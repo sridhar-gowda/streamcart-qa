@@ -1,0 +1,5 @@
+19:41:57 INFO    streamcart.driver.web run=docker-grid-smoke test=- :: Started chrome (http://selenium:4444) headless=True
+19:41:57 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to log in as 'standard_user'
+19:41:58 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+19:41:59 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to open the cart
+19:41:59 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCartItems -> [CartLine(name='Sauce Labs Backpack', price=Decimal('29.99'), quantity=1), CartLine(name='Sauce Labs Bike Light', price=Decimal('9.99'), quantity=1)]

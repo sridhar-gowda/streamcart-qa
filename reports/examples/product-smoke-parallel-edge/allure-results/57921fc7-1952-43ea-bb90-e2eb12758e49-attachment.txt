@@ -1,0 +1,12 @@
+21:38:22 [32mINFO   [0m streamcart.driver.web run=product-smoke-parallel-edge test=- :: Started edge (local) headless=True
+21:38:22 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer attempts to log in as 'standard_user'
+21:38:24 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:38:24 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer attempts to open the cart
+21:38:25 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer attempts to proceed to checkout
+21:38:25 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer attempts to enter shipping information ('Ada', 'Lovelace', 'SW1A 1AA')
+21:38:25 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_OVERVIEW: 'checkout overview'>
+21:38:25 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer asks TheOverviewItemNames -> ['Sauce Labs Backpack', 'Sauce Labs Bike Light']
+21:38:25 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer asks TheOverviewItemNames -> ['Sauce Labs Backpack', 'Sauce Labs Bike Light']
+21:38:26 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer asks TheOrderTotals -> OrderTotals(item_total=Decimal('39.98'), tax=Decimal('3.20'), total=Decimal('43.18'), payment_information='SauceCard #31337', shipping_information='Free Pony Express Delivery!')
+21:38:26 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer asks TheOrderTotals -> OrderTotals(item_total=Decimal('39.98'), tax=Decimal('3.20'), total=Decimal('43.18'), payment_information='SauceCard #31337', shipping_information='Free Pony Express Delivery!')
+21:38:26 [32mINFO   [0m streamcart.screenplay.actor run=product-smoke-parallel-edge test=- :: the customer asks TheOrderTotals -> OrderTotals(item_total=Decimal('39.98'), tax=Decimal('3.20'), total=Decimal('43.18'), payment_information='SauceCard #31337', shipping_information='Free Pony Express Delivery!')

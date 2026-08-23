@@ -1,0 +1,39 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\.venv\Scripts\python.exe
+streamcart: platform=web (web) | env=dev | target=edge | base_url=https://www.saucedemo.com | run_id=product-smoke-parallel-edge
+streamcart: config C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\config :: base.yaml -> platform/web.yaml -> target/edge.yaml -> env/dev.yaml
+streamcart: product run -> reports\runs\product-smoke-parallel-edge
+metadata: {'Python': '3.12.4', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'streamcart-qa': '0.1.0', 'allure-pytest-bdd': '2.16.0', 'bdd': '8.1.0', 'html': '4.2.0', 'metadata': '3.1.1', 'repeat': '0.9.4', 'rerunfailures': '16.6', 'split': '0.11.0', 'xdist': '3.8.0'}, 'JAVA_HOME': 'C:\\Program Files\\Java\\jdk-23'}
+rootdir: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment
+configfile: pyproject.toml
+testpaths: tests/steps
+plugins: streamcart-qa-0.1.0, allure-pytest-bdd-2.16.0, bdd-8.1.0, html-4.2.0, metadata-3.1.1, repeat-0.9.4, rerunfailures-16.6, split-0.11.0, xdist-3.8.0
+created: 4/4 workers
+4 workers [7 items]
+
+scheduling tests via LoadScheduling
+
+tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details 
+tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details 
+tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals 
+tests/steps/test_checkout.py::test_a_completed_order_is_confirmed 
+[gw0] [ 14%] PASSED tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details 
+tests/steps/test_inventory.py::test_adding_a_product_updates_the_cart_badge 
+[gw2] [ 28%] PASSED tests/steps/test_checkout.py::test_a_completed_order_is_confirmed 
+tests/steps/test_purchase_journey.py::test_a_customer_buys_a_backpack_end_to_end 
+[gw1] [ 42%] PASSED tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals 
+tests/steps/test_login.py::test_a_customer_with_valid_credentials_reaches_the_products 
+[gw3] [ 57%] PASSED tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details 
+[gw0] [ 71%] PASSED tests/steps/test_inventory.py::test_adding_a_product_updates_the_cart_badge 
+[gw1] [ 85%] PASSED tests/steps/test_login.py::test_a_customer_with_valid_credentials_reaches_the_products 
+[gw2] [100%] PASSED tests/steps/test_purchase_journey.py::test_a_customer_buys_a_backpack_end_to_end 
+
+- generated json file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-smoke-parallel-edge\cucumber.json -
+- generated xml file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-smoke-parallel-edge\junit.xml -
+=========================== streamcart run summary ============================
+run product-smoke-parallel-edge | web/edge | dev | passed=7
+ok local: reports\runs\product-smoke-parallel-edge\run-results.json
+ok allure-report: reports\runs\product-smoke-parallel-edge\allure-report\index.html
+reports: reports\runs\product-smoke-parallel-edge
+- Generated html report: file:///C:/Users/SBasavanapura/PROJECTS/personal/qa-architect-assignment/qa-architect-assignment/reports/runs/product-smoke-parallel-edge/report.html -
+============================= 7 passed in 23.10s ==============================

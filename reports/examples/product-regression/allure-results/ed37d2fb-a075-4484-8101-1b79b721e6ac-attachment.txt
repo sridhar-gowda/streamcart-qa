@@ -1,0 +1,11 @@
+21:31:46 INFO    streamcart.driver.web run=product-regression test=- :: Started chrome (local) headless=True
+21:31:46 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to log in as 'standard_user'
+21:31:46 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:31:46 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on cart button; dispatched a DOM click instead (anomaly #1)
+21:31:46 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to open the cart
+21:31:46 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on cart link; dispatched a DOM click instead (anomaly #2)
+21:31:46 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to proceed to checkout
+21:31:47 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on checkout; dispatched a DOM click instead (anomaly #3)
+21:31:47 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to cancel the checkout
+21:31:47 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on cancel; dispatched a DOM click instead (anomaly #4)
+21:31:47 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCurrentScreen -> <Screen.CART: 'cart'>

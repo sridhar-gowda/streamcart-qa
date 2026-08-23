@@ -1,0 +1,12 @@
+19:42:00 INFO    streamcart.driver.web run=docker-grid-smoke test=- :: Started chrome (http://selenium:4444) headless=True
+19:42:00 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to log in as 'standard_user'
+19:42:01 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+19:42:01 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to open the cart
+19:42:01 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to proceed to checkout
+19:42:01 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to enter shipping information ('Ada', 'Lovelace', 'SW1A 1AA')
+19:42:02 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_OVERVIEW: 'checkout overview'>
+19:42:02 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheOverviewItemNames -> ['Sauce Labs Backpack', 'Sauce Labs Bike Light']
+19:42:02 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheOverviewItemNames -> ['Sauce Labs Backpack', 'Sauce Labs Bike Light']
+19:42:02 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheOrderTotals -> OrderTotals(item_total=Decimal('39.98'), tax=Decimal('3.20'), total=Decimal('43.18'), payment_information='SauceCard #31337', shipping_information='Free Pony Express Delivery!')
+19:42:02 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheOrderTotals -> OrderTotals(item_total=Decimal('39.98'), tax=Decimal('3.20'), total=Decimal('43.18'), payment_information='SauceCard #31337', shipping_information='Free Pony Express Delivery!')
+19:42:03 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheOrderTotals -> OrderTotals(item_total=Decimal('39.98'), tax=Decimal('3.20'), total=Decimal('43.18'), payment_information='SauceCard #31337', shipping_information='Free Pony Express Delivery!')

@@ -1,0 +1,6 @@
+21:36:47 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:36:47 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user'
+21:36:47 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+21:36:47 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to remove 'Sauce Labs Backpack' from the cart
+21:36:48 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCartBadgeCount -> 0
+21:36:48 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks the product 'Sauce Labs Backpack' -> ProductSummary(name='Sauce Labs Backpack', description='carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.', price=Decimal('29.99'), image_source='https://www.saucedemo.com/assets/sauce-backpack-1200x1500-CjRW-Djj.jpg', in_cart=False)

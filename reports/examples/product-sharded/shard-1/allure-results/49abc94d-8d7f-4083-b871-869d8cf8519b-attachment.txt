@@ -1,0 +1,7 @@
+21:35:09 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:35:09 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user'
+21:35:10 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:35:10 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the cart
+21:35:10 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to remove 'Sauce Labs Bike Light' from the cart
+21:35:10 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCartItemNames -> ['Sauce Labs Backpack']
+21:35:10 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCartBadgeCount -> 1

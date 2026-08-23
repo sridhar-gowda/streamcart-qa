@@ -1,0 +1,25 @@
+ Container qa-architect-assignment-selenium-1  Creating
+ Container qa-architect-assignment-selenium-1  Created
+ Container qa-architect-assignment-selenium-1  Starting
+ Container qa-architect-assignment-selenium-1  Started
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+streamcart: platform=web (web) | env=dev | target=chrome-grid | base_url=https://www.saucedemo.com | run_id=docker-grid-smoke
+streamcart: config /app/config :: base.yaml -> platform/web.yaml -> target/chrome-grid.yaml -> env/dev.yaml
+streamcart: product run -> reports/runs/docker-grid-smoke
+rootdir: /app
+configfile: pyproject.toml
+plugins: streamcart-qa-0.1.0, xdist-3.8.0, html-4.2.0, allure-pytest-bdd-2.16.0, metadata-3.1.1, bdd-8.1.0, rerunfailures-16.6
+created: 2/2 workers
+2 workers [7 items]
+
+.......                                                                  [100%]
+---- generated json file: /app/reports/runs/docker-grid-smoke/cucumber.json ----
+------ generated xml file: /app/reports/runs/docker-grid-smoke/junit.xml -------
+============================ streamcart run summary ============================
+run docker-grid-smoke | web/chrome-grid | dev | passed=7
+ok local: reports/runs/docker-grid-smoke/run-results.json
+ok allure-report: Allure CLI not installed; run: allure serve reports/runs/docker-grid-smoke/allure-results
+reports: reports/runs/docker-grid-smoke
+- Generated html report: file:///app/reports/runs/docker-grid-smoke/report.html -
+============================== 7 passed in 13.09s ==============================

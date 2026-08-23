@@ -1,0 +1,7 @@
+21:35:56 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:35:56 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user'
+21:35:57 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:35:58 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the cart
+21:35:58 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to proceed to checkout
+21:35:58 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to cancel the checkout
+21:35:58 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCurrentScreen -> <Screen.CART: 'cart'>

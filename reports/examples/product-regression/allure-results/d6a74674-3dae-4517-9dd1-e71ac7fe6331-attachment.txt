@@ -1,0 +1,9 @@
+21:32:30 INFO    streamcart.driver.web run=product-regression test=- :: Started chrome (local) headless=True
+21:32:30 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to log in as 'standard_user'
+21:32:30 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:32:30 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to open the cart
+21:32:30 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on cart link; dispatched a DOM click instead (anomaly #1)
+21:32:30 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to continue shopping
+21:32:31 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on continue shopping; dispatched a DOM click instead (anomaly #2)
+21:32:31 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCartBadgeCount -> 2
+21:32:31 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks the product 'Sauce Labs Bike Light' -> ProductSummary(name='Sauce Labs Bike Light', description="A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.", price=Decimal('9.99'), image_source='https://www.saucedemo.com/assets/bike-light-1200x1500-DxcZRFOA.jpg', in_cart=True)

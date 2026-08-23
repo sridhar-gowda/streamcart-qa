@@ -1,0 +1,9 @@
+21:35:50 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:35:50 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user'
+21:35:51 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:35:51 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the cart
+21:35:51 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to proceed to checkout
+21:35:51 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to enter shipping information ('Ada', 'Lovelace', 'SW1A 1AA')
+21:35:52 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to finish the order
+21:35:52 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_COMPLETE: 'checkout complete'>
+21:35:52 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheConfirmationHeading -> 'Thank you for your order!'

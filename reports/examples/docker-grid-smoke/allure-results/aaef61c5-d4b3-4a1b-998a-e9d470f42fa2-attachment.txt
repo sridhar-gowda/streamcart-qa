@@ -1,0 +1,13 @@
+19:42:05 INFO    streamcart.driver.web run=docker-grid-smoke test=- :: Started chrome (http://selenium:4444) headless=True
+19:42:05 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to open the LoginPage
+19:42:05 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to log in as 'standard_user'
+19:42:06 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+19:42:06 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to open the cart
+19:42:06 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to proceed to checkout
+19:42:06 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to enter shipping information ('Ada', 'Lovelace', 'SW1A 1AA')
+19:42:07 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to finish the order
+19:42:07 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_COMPLETE: 'checkout complete'>
+19:42:07 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheConfirmationHeading -> 'Thank you for your order!'
+19:42:07 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to return to the products
+19:42:07 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCurrentScreen -> <Screen.INVENTORY: 'inventory'>
+19:42:07 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCartBadgeCount -> 0

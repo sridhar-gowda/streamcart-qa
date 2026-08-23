@@ -1,0 +1,57 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\.venv\Scripts\python.exe
+streamcart: platform=web (web) | env=dev | target=chrome | base_url=https://www.saucedemo.com | run_id=product-regression
+streamcart: config C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\config :: base.yaml -> platform/web.yaml -> target/chrome.yaml -> env/dev.yaml
+streamcart: product run -> reports\runs\product-regression
+metadata: {'Python': '3.12.4', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'streamcart-qa': '0.1.0', 'allure-pytest-bdd': '2.16.0', 'bdd': '8.1.0', 'html': '4.2.0', 'metadata': '3.1.1', 'repeat': '0.9.4', 'rerunfailures': '16.6', 'split': '0.11.0', 'xdist': '3.8.0'}, 'JAVA_HOME': 'C:\\Program Files\\Java\\jdk-23'}
+rootdir: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment
+configfile: pyproject.toml
+testpaths: tests/steps
+plugins: streamcart-qa-0.1.0, allure-pytest-bdd-2.16.0, bdd-8.1.0, html-4.2.0, metadata-3.1.1, repeat-0.9.4, rerunfailures-16.6, split-0.11.0, xdist-3.8.0
+collecting ... collected 31 items
+streamcart: 1 scenario(s) skipped: platform 'web' lacks a capability
+
+tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details PASSED [  3%]
+tests/steps/test_cart.py::test_a_product_can_be_removed_from_the_cart PASSED [  6%]
+tests/steps/test_cart.py::test_the_customer_can_go_back_to_shopping PASSED [  9%]
+tests/steps/test_cart.py::test_the_customer_can_proceed_to_checkout PASSED [ 12%]
+tests/steps/test_checkout.py::test_every_shipping_field_is_required[-Lovelace-SW1A 1AA-First Name is required] PASSED [ 16%]
+tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada--SW1A 1AA-Last Name is required] PASSED [ 19%]
+tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada-Lovelace--Postal Code is required] PASSED [ 22%]
+tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals PASSED [ 25%]
+tests/steps/test_checkout.py::test_a_completed_order_is_confirmed PASSED [ 29%]
+tests/steps/test_checkout.py::test_checkout_can_be_cancelled_back_to_the_cart PASSED [ 32%]
+tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details PASSED [ 35%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (A to Z)-name-ascending] PASSED [ 38%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (Z to A)-name-descending] PASSED [ 41%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (low to high)-price-ascending] PASSED [ 45%]
+tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (high to low)-price-descending] PASSED [ 48%]
+tests/steps/test_inventory.py::test_adding_a_product_updates_the_cart_badge PASSED [ 51%]
+tests/steps/test_inventory.py::test_a_product_can_be_removed_again_from_the_catalogue PASSED [ 54%]
+tests/steps/test_inventory.py::test_the_cart_keeps_its_contents_while_the_customer_keeps_browsing PASSED [ 58%]
+tests/steps/test_login.py::test_a_customer_with_valid_credentials_reaches_the_products PASSED [ 61%]
+tests/steps/test_login.py::test_wrong_credentials_are_refused PASSED     [ 64%]
+tests/steps/test_login.py::test_a_lockedout_account_is_refused_with_a_specific_message PASSED [ 67%]
+tests/steps/test_login.py::test_missing_credentials_are_reported[-anything-Username is required] PASSED [ 70%]
+tests/steps/test_login.py::test_missing_credentials_are_reported[standard_user--Password is required] PASSED [ 74%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[standard] PASSED [ 77%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[problem] PASSED [ 80%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[error] PASSED [ 83%]
+tests/steps/test_login.py::test_every_active_account_type_can_sign_in[visual] PASSED [ 87%]
+tests/steps/test_login.py::test_an_account_with_slow_responses_can_still_sign_in PASSED [ 90%]
+tests/steps/test_platform_divergence.py::test_signing_in_by_pressing_enter_on_a_physical_keyboard PASSED [ 93%]
+tests/steps/test_platform_divergence.py::test_swiping_through_the_catalogue_on_a_touch_screen SKIPPED [ 96%]
+tests/steps/test_purchase_journey.py::test_a_customer_buys_a_backpack_end_to_end PASSED [100%]
+
+- generated json file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-regression\cucumber.json -
+- generated xml file: C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\reports\runs\product-regression\junit.xml -
+=========================== streamcart run summary ============================
+run product-regression | web/chrome | dev | passed=30 skipped=1
+environment: browser dropped 57 input event(s); DOM fallback used
+ok local: reports\runs\product-regression\run-results.json
+ok allure-report: reports\runs\product-regression\allure-report\index.html
+reports: reports\runs\product-regression
+- Generated html report: file:///C:/Users/SBasavanapura/PROJECTS/personal/qa-architect-assignment/qa-architect-assignment/reports/runs/product-regression/report.html -
+=========================== short test summary info ===========================
+SKIPPED [1] .venv\Lib\site-packages\pytest_bdd\scenario.py:296: platform 'web' lacks capability: swipe
+================== 30 passed, 1 skipped in 168.17s (0:02:48) ==================

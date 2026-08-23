@@ -1,0 +1,8 @@
+21:35:32 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:35:32 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user'
+21:35:33 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:35:33 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the cart
+21:35:33 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to proceed to checkout
+21:35:33 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to enter shipping information ('Ada', '', 'SW1A 1AA')
+21:35:33 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_INFORMATION: 'checkout information'>
+21:35:33 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCheckoutError -> 'Error: Last Name is required'

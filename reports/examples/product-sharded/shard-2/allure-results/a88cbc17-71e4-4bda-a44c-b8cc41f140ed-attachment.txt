@@ -1,0 +1,5 @@
+21:37:02 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:37:02 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the LoginPage
+21:37:03 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'standard_user'
+21:37:03 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCurrentScreen -> <Screen.LOGIN: 'login'>
+21:37:03 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheLoginError -> 'Epic sadface: Username and password do not match any user in this service'

@@ -1,0 +1,206 @@
+{
+  "run_id": "product-failure-simulation",
+  "team": "streamcart-qa",
+  "platform": "web",
+  "target": "chrome",
+  "env": "dev",
+  "base_url": "https://www.saucedemo.com",
+  "build": "",
+  "browser": "chrome",
+  "config_layers": [
+    "base.yaml",
+    "platform/web.yaml",
+    "target/chrome.yaml",
+    "env/dev.yaml"
+  ],
+  "started_at": "2026-08-23T19:33:56+00:00",
+  "finished_at": "2026-08-23T19:34:40+00:00",
+  "host": "SBASAVANAP3-NB",
+  "python": "3.12.4",
+  "input_anomalies": 0,
+  "tms_execution": "",
+  "receipts": {
+    "local": "reports\\runs\\product-failure-simulation\\run-results.json",
+    "allure-report": "reports\\runs\\product-failure-simulation\\allure-report\\index.html"
+  },
+  "results": [
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_a_passing_scenario",
+      "name": "test_a_passing_scenario",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.428031800023746,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-DEMO-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2",
+      "name": "test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2",
+      "outcome": "failed",
+      "category": "product",
+      "attempts": 1,
+      "duration": 4.735379000019748,
+      "message": "AssertionError: assert 1 == 2\n +  where 1 = asks(<streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0>)\n +    where asks = <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>.asks\n +    and   <streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0> = TheCartBadgeCount()",
+      "exception_type": "AssertionError",
+      "tms_ids": [
+        "TC-DEMO-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {
+        "screenshot": "failure_simulation_test_failure_simulation.py_test_a_product_defect__the_badge_count_is_wro_83da8b64/screenshot.png",
+        "page_source": "failure_simulation_test_failure_simulation.py_test_a_product_defect__the_badge_count_is_wro_83da8b64/page_source.html",
+        "console_log": "failure_simulation_test_failure_simulation.py_test_a_product_defect__the_badge_count_is_wro_83da8b64/console.log"
+      },
+      "worker": "main"
+    },
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist",
+      "name": "test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist",
+      "outcome": "failed",
+      "category": "ui-contract",
+      "attempts": 1,
+      "duration": 14.706200899963733,
+      "message": "streamcart.core.errors.ElementNotFoundError: Element 'product card 'Sauce Labs Teleporter'' not found on web within 10.0s using xpath=\"//*[@data-test='inventory-item'][.//*[@data-test='inventory-item-name'][normalize-space()='Sauce Labs Teleporter']]\".",
+      "exception_type": "ElementNotFoundError",
+      "tms_ids": [
+        "TC-DEMO-003"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {
+        "screenshot": "failure_simulation_test_failure_simulation.py_test_a_ui_contract_failure__the_product_the_t_29b82c26/screenshot.png",
+        "page_source": "failure_simulation_test_failure_simulation.py_test_a_ui_contract_failure__the_product_the_t_29b82c26/page_source.html",
+        "console_log": "failure_simulation_test_failure_simulation.py_test_a_ui_contract_failure__the_product_the_t_29b82c26/console.log"
+      },
+      "worker": "main"
+    },
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_an_environment_failure_that_passes_on_retry__reported_as_flaky",
+      "name": "test_an_environment_failure_that_passes_on_retry__reported_as_flaky",
+      "outcome": "passed",
+      "category": "flaky",
+      "attempts": 2,
+      "duration": 7.179282199998852,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-DEMO-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_a_known_issue_tracked_in_ticket_sc42__fails_without_blocking_the_build",
+      "name": "test_a_known_issue_tracked_in_ticket_sc42__fails_without_blocking_the_build",
+      "outcome": "xfailed",
+      "category": "known-issue",
+      "attempts": 1,
+      "duration": 4.955665300018154,
+      "message": "AssertionError: assert 1 == 3\n +  where 1 = asks(<streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB752360>)\n +    where asks = <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>.asks\n +    and   <streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB752360> = TheCartBadgeCount()",
+      "exception_type": "AssertionError",
+      "tms_ids": [
+        "TC-DEMO-005"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "SC-42",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {
+        "screenshot": "failure_simulation_test_failure_simulation.py_test_a_known_issue_tracked_in_ticket_sc42__fa_f390d7a4/screenshot.png",
+        "page_source": "failure_simulation_test_failure_simulation.py_test_a_known_issue_tracked_in_ticket_sc42__fa_f390d7a4/page_source.html",
+        "console_log": "failure_simulation_test_failure_simulation.py_test_a_known_issue_tracked_in_ticket_sc42__fa_f390d7a4/console.log"
+      },
+      "worker": "main"
+    },
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_a_quarantined_scenario__fails_without_blocking_the_build",
+      "name": "test_a_quarantined_scenario__fails_without_blocking_the_build",
+      "outcome": "xfailed",
+      "category": "product",
+      "attempts": 1,
+      "duration": 5.089077000040561,
+      "message": "AssertionError: assert 1 == 4\n +  where 1 = asks(<streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C54F0>)\n +    where asks = <Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]>.asks\n +    and   <streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C54F0> = TheCartBadgeCount()",
+      "exception_type": "AssertionError",
+      "tms_ids": [
+        "TC-DEMO-006"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "",
+      "quarantined": true,
+      "skip_reason": "",
+      "artifacts": {
+        "screenshot": "failure_simulation_test_failure_simulation.py_test_a_quarantined_scenario__fails_without_bl_48d571e6/screenshot.png",
+        "page_source": "failure_simulation_test_failure_simulation.py_test_a_quarantined_scenario__fails_without_bl_48d571e6/page_source.html",
+        "console_log": "failure_simulation_test_failure_simulation.py_test_a_quarantined_scenario__fails_without_bl_48d571e6/console.log"
+      },
+      "worker": "main"
+    },
+    {
+      "nodeid": "failure_simulation/test_failure_simulation.py::test_a_scenario_this_platform_cannot_run__skipped_with_the_reason",
+      "name": "test_a_scenario_this_platform_cannot_run__skipped_with_the_reason",
+      "outcome": "skipped",
+      "category": null,
+      "attempts": 1,
+      "duration": 0.0005886000581085682,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-DEMO-007"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "failure-simulation",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "Skipped: platform 'web' lacks capability: swipe",
+      "artifacts": {},
+      "worker": "main"
+    }
+  ]
+}

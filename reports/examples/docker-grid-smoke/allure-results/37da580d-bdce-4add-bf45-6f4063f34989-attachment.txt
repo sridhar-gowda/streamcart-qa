@@ -1,0 +1,5 @@
+19:42:03 INFO    streamcart.driver.web run=docker-grid-smoke test=- :: Started chrome (http://selenium:4444) headless=True
+19:42:03 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to log in as 'standard_user'
+19:42:04 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+19:42:04 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCartBadgeCount -> 1
+19:42:04 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks the product 'Sauce Labs Backpack' -> ProductSummary(name='Sauce Labs Backpack', description='carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.', price=Decimal('29.99'), image_source='https://www.saucedemo.com/assets/sauce-backpack-1200x1500-CjRW-Djj.jpg', in_cart=True)

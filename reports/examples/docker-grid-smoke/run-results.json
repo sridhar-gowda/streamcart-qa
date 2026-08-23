@@ -1,0 +1,197 @@
+{
+  "run_id": "docker-grid-smoke",
+  "team": "streamcart-qa",
+  "platform": "web",
+  "target": "chrome-grid",
+  "env": "dev",
+  "base_url": "https://www.saucedemo.com",
+  "build": "",
+  "browser": "chrome",
+  "config_layers": [
+    "base.yaml",
+    "platform/web.yaml",
+    "target/chrome-grid.yaml",
+    "env/dev.yaml"
+  ],
+  "started_at": "2026-08-23T19:41:54+00:00",
+  "finished_at": "2026-08-23T19:42:07+00:00",
+  "host": "dcc4c24b979d",
+  "python": "3.12.14",
+  "input_anomalies": 0,
+  "tms_execution": "",
+  "receipts": {
+    "local": "reports/runs/docker-grid-smoke/run-results.json",
+    "allure-report": "Allure CLI not installed; run: allure serve reports/runs/docker-grid-smoke/allure-results"
+  },
+  "results": [
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details",
+      "name": "test_the_cart_lists_each_product_with_its_details",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 3.254857791995164,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw0"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_a_completed_order_is_confirmed",
+      "name": "test_a_completed_order_is_confirmed",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 3.9518390640005236,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-003"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw1"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals",
+      "name": "test_the_order_overview_reconciles_the_totals",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 3.3432302639994305,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-002"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw0"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details",
+      "name": "test_the_catalogue_shows_every_product_with_its_details",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.162600550000207,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw1"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_adding_a_product_updates_the_cart_badge",
+      "name": "test_adding_a_product_updates_the_cart_badge",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 1.7596086259873118,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-003"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw0"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_a_customer_with_valid_credentials_reaches_the_products",
+      "name": "test_a_customer_with_valid_credentials_reaches_the_products",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 1.3873276690137573,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw1"
+    },
+    {
+      "nodeid": "tests/steps/test_purchase_journey.py::test_a_customer_buys_a_backpack_end_to_end",
+      "name": "test_a_customer_buys_a_backpack_end_to_end",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 2.648054384990246,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-E2E-001"
+      ],
+      "suites": [
+        "e2e",
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "journey",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "gw0"
+    }
+  ]
+}

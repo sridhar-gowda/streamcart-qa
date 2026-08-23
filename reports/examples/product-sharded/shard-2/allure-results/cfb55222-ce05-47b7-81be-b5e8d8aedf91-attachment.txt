@@ -1,0 +1,5 @@
+21:37:07 INFO    streamcart.driver.web run=product-sharded test=- :: Started edge (local) headless=True
+21:37:07 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to open the LoginPage
+21:37:07 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer attempts to log in as 'locked_out_user'
+21:37:08 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheCurrentScreen -> <Screen.LOGIN: 'login'>
+21:37:08 INFO    streamcart.screenplay.actor run=product-sharded test=- :: the customer asks TheLoginError -> 'Epic sadface: Sorry, this user has been locked out.'

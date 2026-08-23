@@ -1,0 +1,4 @@
+19:42:04 INFO    streamcart.driver.web run=docker-grid-smoke test=- :: Started chrome (http://selenium:4444) headless=True
+19:42:04 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to open the LoginPage
+19:42:05 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer attempts to log in as 'standard_user'
+19:42:05 INFO    streamcart.screenplay.actor run=docker-grid-smoke test=- :: the customer asks TheCurrentScreen -> <Screen.INVENTORY: 'inventory'>

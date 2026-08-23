@@ -1,0 +1,749 @@
+{
+  "run_id": "product-regression",
+  "team": "streamcart-qa",
+  "platform": "web",
+  "target": "chrome",
+  "env": "dev",
+  "base_url": "https://www.saucedemo.com",
+  "build": "",
+  "browser": "chrome",
+  "config_layers": [
+    "base.yaml",
+    "platform/web.yaml",
+    "target/chrome.yaml",
+    "env/dev.yaml"
+  ],
+  "started_at": "2026-08-23T19:30:54+00:00",
+  "finished_at": "2026-08-23T19:33:37+00:00",
+  "host": "SBASAVANAP3-NB",
+  "python": "3.12.4",
+  "input_anomalies": 57,
+  "tms_execution": "",
+  "receipts": {
+    "local": "reports\\runs\\product-regression\\run-results.json",
+    "allure-report": "reports\\runs\\product-regression\\allure-report\\index.html"
+  },
+  "results": [
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details",
+      "name": "test_the_cart_lists_each_product_with_its_details",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.158313299994916,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_cart.py::test_a_product_can_be_removed_from_the_cart",
+      "name": "test_a_product_can_be_removed_from_the_cart",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.396374199946877,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_customer_can_go_back_to_shopping",
+      "name": "test_the_customer_can_go_back_to_shopping",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.179976699932013,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-003"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_customer_can_proceed_to_checkout",
+      "name": "test_the_customer_can_proceed_to_checkout",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.1148457999224775,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_every_shipping_field_is_required[-Lovelace-SW1A 1AA-First Name is required]",
+      "name": "test_every_shipping_field_is_required[-Lovelace-SW1A 1AA-First Name is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.438736699987203,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada--SW1A 1AA-Last Name is required]",
+      "name": "test_every_shipping_field_is_required[Ada--SW1A 1AA-Last Name is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.378332600055728,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada-Lovelace--Postal Code is required]",
+      "name": "test_every_shipping_field_is_required[Ada-Lovelace--Postal Code is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.311867899959907,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals",
+      "name": "test_the_order_overview_reconciles_the_totals",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.045145800046157,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-002"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_a_completed_order_is_confirmed",
+      "name": "test_a_completed_order_is_confirmed",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.6599436000105925,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-003"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_checkout_can_be_cancelled_back_to_the_cart",
+      "name": "test_checkout_can_be_cancelled_back_to_the_cart",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.168659700022545,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details",
+      "name": "test_the_catalogue_shows_every_product_with_its_details",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.425440099963453,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (A to Z)-name-ascending]",
+      "name": "test_the_products_can_be_sorted[Name (A to Z)-name-ascending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.80582140001934,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (Z to A)-name-descending]",
+      "name": "test_the_products_can_be_sorted[Name (Z to A)-name-descending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.348312499991152,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (low to high)-price-ascending]",
+      "name": "test_the_products_can_be_sorted[Price (low to high)-price-ascending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.561842699942645,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (high to low)-price-descending]",
+      "name": "test_the_products_can_be_sorted[Price (high to low)-price-descending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.461441799998283,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_adding_a_product_updates_the_cart_badge",
+      "name": "test_adding_a_product_updates_the_cart_badge",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.127174399967771,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-003"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_a_product_can_be_removed_again_from_the_catalogue",
+      "name": "test_a_product_can_be_removed_again_from_the_catalogue",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.086024899967015,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_cart_keeps_its_contents_while_the_customer_keeps_browsing",
+      "name": "test_the_cart_keeps_its_contents_while_the_customer_keeps_browsing",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.225176299980376,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-005"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_a_customer_with_valid_credentials_reaches_the_products",
+      "name": "test_a_customer_with_valid_credentials_reaches_the_products",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.696565300051589,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_wrong_credentials_are_refused",
+      "name": "test_wrong_credentials_are_refused",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.907748099940363,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_a_lockedout_account_is_refused_with_a_specific_message",
+      "name": "test_a_lockedout_account_is_refused_with_a_specific_message",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.8303144999663346,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-003"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_missing_credentials_are_reported[-anything-Username is required]",
+      "name": "test_missing_credentials_are_reported[-anything-Username is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.681526899919845,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_missing_credentials_are_reported[standard_user--Password is required]",
+      "name": "test_missing_credentials_are_reported[standard_user--Password is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.413322400068864,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_every_active_account_type_can_sign_in[standard]",
+      "name": "test_every_active_account_type_can_sign_in[standard]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.914547199907247,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-005"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_every_active_account_type_can_sign_in[problem]",
+      "name": "test_every_active_account_type_can_sign_in[problem]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.787163600034546,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-005"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_every_active_account_type_can_sign_in[error]",
+      "name": "test_every_active_account_type_can_sign_in[error]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.705271400103811,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-005"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_every_active_account_type_can_sign_in[visual]",
+      "name": "test_every_active_account_type_can_sign_in[visual]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.83453620004002,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-005"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_login.py::test_an_account_with_slow_responses_can_still_sign_in",
+      "name": "test_an_account_with_slow_responses_can_still_sign_in",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 10.006998500030022,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-LOGIN-006"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "login",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_platform_divergence.py::test_signing_in_by_pressing_enter_on_a_physical_keyboard",
+      "name": "test_signing_in_by_pressing_enter_on_a_physical_keyboard",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 4.725505299982615,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-DIV-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "platform-divergence",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_platform_divergence.py::test_swiping_through_the_catalogue_on_a_touch_screen",
+      "name": "test_swiping_through_the_catalogue_on_a_touch_screen",
+      "outcome": "skipped",
+      "category": null,
+      "attempts": 1,
+      "duration": 0.0009496000711806118,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-DIV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "platform-divergence",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "Skipped: platform 'web' lacks capability: swipe",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_purchase_journey.py::test_a_customer_buys_a_backpack_end_to_end",
+      "name": "test_a_customer_buys_a_backpack_end_to_end",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.496707000012975,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-E2E-001"
+      ],
+      "suites": [
+        "e2e",
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "journey",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="3" tests="7" time="44.375" timestamp="2026-08-23T21:33:56.124067+02:00" hostname="SBASAVANAP3-NB"><testcase classname="failure_simulation.test_failure_simulation" name="test_a_passing_scenario" time="4.428" /><testcase classname="failure_simulation.test_failure_simulation" name="test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2" time="4.735"><properties><property name="category" value="product" /><property name="attempts" value="1" /><property name="artifact:screenshot" value="failure_simulation_test_failure_simulation.py_test_a_product_defect__the_badge_count_is_wro_83da8b64/screenshot.png" /><property name="artifact:page_source" value="failure_simulation_test_failure_simulation.py_test_a_product_defect__the_badge_count_is_wro_83da8b64/page_source.html" /><property name="artifact:console_log" value="failure_simulation_test_failure_simulation.py_test_a_product_defect__the_badge_count_is_wro_83da8b64/console.log" /></properties><failure message="AssertionError: assert 1 == 2&#10; +  where 1 = asks(&lt;streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0&gt;)&#10; +    where asks = &lt;Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]&gt;.asks&#10; +    and   &lt;streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0&gt; = TheCartBadgeCount()">fixturefunc = &lt;function cart_badge_shows at 0x000002CDC9C877E0&gt;
+request = &lt;FixtureRequest for &lt;Function test_a_product_defect__the_badge_count_is_wrong_simulated_by_expecting_2&gt;&gt;
+kwargs = {'count': 2, 'customer': &lt;Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]&gt;}
+
+    def call_fixture_func(
+        fixturefunc: _FixtureFunc[FixtureValue], request: FixtureRequest, kwargs
+    ) -&gt; FixtureValue:
+        if inspect.isgeneratorfunction(fixturefunc):
+            fixturefunc = cast(Callable[..., Generator[FixtureValue]], fixturefunc)
+            generator = fixturefunc(**kwargs)
+            try:
+                fixture_result = next(generator)
+            except StopIteration:
+                raise ValueError(f"{request.fixturename} did not yield a value") from None
+            finalizer = functools.partial(_teardown_yield_fixture, fixturefunc, generator)
+            request.addfinalizer(finalizer)
+        else:
+            fixturefunc = cast(Callable[..., FixtureValue], fixturefunc)
+&gt;           fixture_result = fixturefunc(**kwargs)
+                             ^^^^^^^^^^^^^^^^^^^^^
+
+.venv\Lib\site-packages\_pytest\fixtures.py:1005: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+customer = &lt;Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]&gt;
+count = 2
+
+    @then(parsers.parse("the cart badge shows {count:d}"))
+    def cart_badge_shows(customer: Actor, count: int) -&gt; None:
+&gt;       assert customer.asks(TheCartBadgeCount()) == count
+E       AssertionError: assert 1 == 2
+E        +  where 1 = asks(&lt;streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0&gt;)
+E        +    where asks = &lt;Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]&gt;.asks
+E        +    and   &lt;streamcart.screenplay.questions.inventory.TheCartBadgeCount object at 0x000002CDCB2C5DF0&gt; = TheCartBadgeCount()
+
+tests\steps\common_steps.py:57: AssertionError</failure></testcase><testcase classname="failure_simulation.test_failure_simulation" name="test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist" time="14.706"><properties><property name="category" value="ui-contract" /><property name="attempts" value="1" /><property name="artifact:screenshot" value="failure_simulation_test_failure_simulation.py_test_a_ui_contract_failure__the_product_the_t_29b82c26/screenshot.png" /><property name="artifact:page_source" value="failure_simulation_test_failure_simulation.py_test_a_ui_contract_failure__the_product_the_t_29b82c26/page_source.html" /><property name="artifact:console_log" value="failure_simulation_test_failure_simulation.py_test_a_ui_contract_failure__the_product_the_t_29b82c26/console.log" /></properties><failure message="streamcart.core.errors.ElementNotFoundError: Element 'product card 'Sauce Labs Teleporter'' not found on web within 10.0s using xpath=&quot;//*[@data-test='inventory-item'][.//*[@data-test='inventory-item-name'][normalize-space()='Sauce Labs Teleporter']]&quot;.">fixturefunc = &lt;function adds_to_cart at 0x000002CDC9CB68E0&gt;
+request = &lt;FixtureRequest for &lt;Function test_a_ui_contract_failure__the_product_the_test_expects_does_not_exist&gt;&gt;
+kwargs = {'products': ['Sauce Labs Teleporter'], 'customer': &lt;Actor 'the customer' persona=None abilities=[BrowseTheWeb on web]&gt;}
+
+    def call_fixture_func(
+        fixturefunc: _FixtureFunc[FixtureValue], request: FixtureRequest, kwargs
+    ) -&gt; FixtureValue:
+        if inspect.isgeneratorfunction(fixturefunc):
+            fixturefunc = cast(Callable[..., Generator[FixtureValue]], fixturefunc)
+            generator = fixturefunc(**kwargs)
+            try:
+                fixture_result = next(generator)
+            except StopIteration:
+                raise ValueError(f"{request.fixturename} did not yield a value") from None
+            finalizer = functools.partial(_teardown_yield_fixture, fixturefunc, generator)
+            request.addfinalizer(finalizer)
+        else:
+            fixturefunc = cast(Callable[..., FixtureValue], fixturefunc)
+&gt;           fixture_result = fixturefunc(**kwargs)
+                             ^^^^^^^^^^^^^^^^^^^^^
+
+.venv\Lib\site-packages\_pytest\fixtures.py:1005: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\steps\inventory_steps.py:19: in adds_to_cart
+    customer.attempts_to(AddToCart.items(*products))
+streamcart\screenplay\actor.py:95: in attempts_to
+    task.perform_as(self)
+streamcart\screenplay\tasks\inventory.py:30: in perform_as
+    if not card.is_in_cart():
+           ^^^^^^^^^^^^^^^^^
+streamcart\ui\components\product_card.py:68: in is_in_cart
+    return self.cart_button_label == REMOVE_LABEL
+           ^^^^^^^^^^^^^^^^^^^^^^
+streamcart\ui\components\product_card.py:65: in cart_button_label
+    return self.cart_button.label
+           ^^^^^^^^^^^^^^^^
+streamcart\ui\components\product_card.py:61: in cart_button
+    return Button(self.driver, self.CART_BUTTON, within=self.root)
+                                                        ^^^^^^^^^
+streamcart\ui\base.py:51: in root
+    return self._scope_find(self._root_locator, timeout=None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+streamcart\ui\base.py:56: in _scope_find
+    return self.driver.find(locator, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+streamcart\core\driver\adapters\web_selenium.py:284: in find
+    return WebElementHandle(self, self._locate(locator, timeout=timeout), locator)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;SeleniumWebDriver platform=web&gt;
+locator = Locator(name="product card 'Sauce Labs Teleporter'"), timeout = None
+within = None
+
+    def _locate(self, locator: Locator, *, timeout: float | None, within: WebElement | None = None) -&gt; WebElement:
+        by, value = self._resolve(locator.for_platform(self.platform))
+        scope = within if within is not None else self._raw
+        effective = self.wait.timeout if timeout is None else timeout
+        try:
+            with self._translating(f"find {locator}"):
+                return self.wait.until(
+                    lambda: scope.find_element(by, value),
+                    timeout=effective,
+                    message=f"find {locator}",
+                    ignored=(NoSuchElementException, StaleElementReferenceException),
+                )
+        except ConditionTimeoutError:
+&gt;           raise ElementNotFoundError(locator, self.platform, effective) from None
+E           streamcart.core.errors.ElementNotFoundError: Element 'product card 'Sauce Labs Teleporter'' not found on web within 10.0s using xpath="//*[@data-test='inventory-item'][.//*[@data-test='inventory-item-name'][normalize-space()='Sauce Labs Teleporter']]".
+
+streamcart\core\driver\adapters\web_selenium.py:262: ElementNotFoundError</failure></testcase><testcase classname="failure_simulation.test_failure_simulation" name="test_an_environment_failure_that_passes_on_retry__reported_as_flaky" time="7.179"><properties><property name="artifact:screenshot" value="failure_simulation_test_failure_simulation.py_test_an_environment_failure_that_passes_on_re_88f74c78/screenshot.png" /><property name="artifact:page_source" value="failure_simulation_test_failure_simulation.py_test_an_environment_failure_that_passes_on_re_88f74c78/page_source.html" /><property name="artifact:console_log" value="failure_simulation_test_failure_simulation.py_test_an_environment_failure_that_passes_on_re_88f74c78/console.log" /><property name="category" value="flaky" /><property name="attempts" value="2" /></properties></testcase><testcase classname="failure_simulation.test_failure_simulation" name="test_a_known_issue_tracked_in_ticket_sc42__fails_without_blocking_the_build" time="4.956"><properties><property name="category" value="known-issue" /><property name="attempts" value="1" /><property name="artifact:screenshot" value="failure_simulation_test_failure_simulation.py_test_a_known_issue_tracked_in_ticket_sc42__fa_f390d7a4/screenshot.png" /><property name="artifact:page_source" value="failure_simulation_test_failure_simulation.py_test_a_known_issue_tracked_in_ticket_sc42__fa_f390d7a4/page_source.html" /><property name="artifact:console_log" value="failure_simulation_test_failure_simulation.py_test_a_known_issue_tracked_in_ticket_sc42__fa_f390d7a4/console.log" /></properties><skipped type="pytest.xfail" message="known issue SC-42" /></testcase><testcase classname="failure_simulation.test_failure_simulation" name="test_a_quarantined_scenario__fails_without_blocking_the_build" time="5.089"><properties><property name="category" value="product" /><property name="attempts" value="1" /><property name="artifact:screenshot" value="failure_simulation_test_failure_simulation.py_test_a_quarantined_scenario__fails_without_bl_48d571e6/screenshot.png" /><property name="artifact:page_source" value="failure_simulation_test_failure_simulation.py_test_a_quarantined_scenario__fails_without_bl_48d571e6/page_source.html" /><property name="artifact:console_log" value="failure_simulation_test_failure_simulation.py_test_a_quarantined_scenario__fails_without_bl_48d571e6/console.log" /></properties><skipped type="pytest.xfail" message="quarantined (tagged @quarantine)" /></testcase><testcase classname="failure_simulation.test_failure_simulation" name="test_a_scenario_this_platform_cannot_run__skipped_with_the_reason" time="0.001"><skipped type="pytest.skip" message="platform 'web' lacks capability: swipe">C:\Users\SBasavanapura\PROJECTS\personal\qa-architect-assignment\qa-architect-assignment\.venv\Lib\site-packages\pytest_bdd\scenario.py:296: platform 'web' lacks capability: swipe</skipped></testcase></testsuite></testsuites>

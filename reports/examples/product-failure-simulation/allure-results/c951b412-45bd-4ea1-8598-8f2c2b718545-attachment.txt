@@ -1,0 +1,4 @@
+21:34:02 INFO    streamcart.driver.web run=product-failure-simulation test=- :: Started chrome (local) headless=True
+21:34:02 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to log in as 'standard_user'
+21:34:02 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+21:34:03 INFO    streamcart.screenplay.actor run=product-failure-simulation test=- :: the customer asks TheCartBadgeCount -> 1

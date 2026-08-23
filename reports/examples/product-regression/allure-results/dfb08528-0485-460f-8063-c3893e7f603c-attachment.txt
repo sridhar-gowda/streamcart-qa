@@ -1,0 +1,20 @@
+21:33:33 INFO    streamcart.driver.web run=product-regression test=- :: Started chrome (local) headless=True
+21:33:33 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to open the LoginPage
+21:33:34 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to log in as 'standard_user'
+21:33:34 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack'
+21:33:34 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to open the cart
+21:33:34 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to proceed to checkout
+21:33:34 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on checkout; dispatched a DOM click instead (anomaly #1)
+21:33:34 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to enter shipping information ('Ada', 'Lovelace', 'SW1A 1AA')
+21:33:34 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped keyboard input on first name; set the value from the DOM instead (anomaly #2)
+21:33:34 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped keyboard input on last name; set the value from the DOM instead (anomaly #3)
+21:33:35 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped keyboard input on postal code; set the value from the DOM instead (anomaly #4)
+21:33:35 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on continue; dispatched a DOM click instead (anomaly #5)
+21:33:35 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to finish the order
+21:33:35 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on finish; dispatched a DOM click instead (anomaly #6)
+21:33:35 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_COMPLETE: 'checkout complete'>
+21:33:35 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheConfirmationHeading -> 'Thank you for your order!'
+21:33:35 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to return to the products
+21:33:35 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on back to products; dispatched a DOM click instead (anomaly #7)
+21:33:35 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCurrentScreen -> <Screen.INVENTORY: 'inventory'>
+21:33:35 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCartBadgeCount -> 0

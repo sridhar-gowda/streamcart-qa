@@ -1,0 +1,14 @@
+21:31:18 INFO    streamcart.driver.web run=product-regression test=- :: Started chrome (local) headless=True
+21:31:18 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to log in as 'standard_user'
+21:31:18 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to add to the cart: 'Sauce Labs Backpack', 'Sauce Labs Bike Light'
+21:31:19 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on cart button; dispatched a DOM click instead (anomaly #1)
+21:31:19 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to open the cart
+21:31:19 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on cart link; dispatched a DOM click instead (anomaly #2)
+21:31:19 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to proceed to checkout
+21:31:19 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on checkout; dispatched a DOM click instead (anomaly #3)
+21:31:19 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer attempts to enter shipping information ('', 'Lovelace', 'SW1A 1AA')
+21:31:19 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped keyboard input on last name; set the value from the DOM instead (anomaly #4)
+21:31:19 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped keyboard input on postal code; set the value from the DOM instead (anomaly #5)
+21:31:19 WARNING streamcart.driver.web run=product-regression test=- :: Browser dropped the pointer click on continue; dispatched a DOM click instead (anomaly #6)
+21:31:19 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCurrentScreen -> <Screen.CHECKOUT_INFORMATION: 'checkout information'>
+21:31:19 INFO    streamcart.screenplay.actor run=product-regression test=- :: the customer asks TheCheckoutError -> 'Error: First Name is required'

@@ -1,0 +1,354 @@
+{
+  "run_id": "product-sharded",
+  "team": "streamcart-qa",
+  "platform": "web",
+  "target": "edge",
+  "env": "dev",
+  "base_url": "https://www.saucedemo.com",
+  "build": "",
+  "browser": "edge",
+  "config_layers": [
+    "base.yaml",
+    "platform/web.yaml",
+    "target/edge.yaml",
+    "env/dev.yaml"
+  ],
+  "started_at": "2026-08-23T19:35:01+00:00",
+  "finished_at": "2026-08-23T19:36:26+00:00",
+  "host": "SBASAVANAP3-NB",
+  "python": "3.12.4",
+  "input_anomalies": 0,
+  "tms_execution": "",
+  "receipts": {
+    "local": "reports\\runs\\product-sharded\\run-results.json",
+    "allure-report": "reports\\runs\\product-sharded\\allure-report\\index.html"
+  },
+  "results": [
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_cart_lists_each_product_with_its_details",
+      "name": "test_the_cart_lists_each_product_with_its_details",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.392828199954238,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_cart.py::test_a_product_can_be_removed_from_the_cart",
+      "name": "test_a_product_can_be_removed_from_the_cart",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.526461800036486,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_customer_can_go_back_to_shopping",
+      "name": "test_the_customer_can_go_back_to_shopping",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.487922500004061,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-003"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_cart.py::test_the_customer_can_proceed_to_checkout",
+      "name": "test_the_customer_can_proceed_to_checkout",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.6605307999416254,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CART-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "cart",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_every_shipping_field_is_required[-Lovelace-SW1A 1AA-First Name is required]",
+      "name": "test_every_shipping_field_is_required[-Lovelace-SW1A 1AA-First Name is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.286864900030196,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada--SW1A 1AA-Last Name is required]",
+      "name": "test_every_shipping_field_is_required[Ada--SW1A 1AA-Last Name is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.530724700016435,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_every_shipping_field_is_required[Ada-Lovelace--Postal Code is required]",
+      "name": "test_every_shipping_field_is_required[Ada-Lovelace--Postal Code is required]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.873358400014695,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-001"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_the_order_overview_reconciles_the_totals",
+      "name": "test_the_order_overview_reconciles_the_totals",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.658667400013655,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-002"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_a_completed_order_is_confirmed",
+      "name": "test_a_completed_order_is_confirmed",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 5.870860100025311,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-003"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_checkout.py::test_checkout_can_be_cancelled_back_to_the_cart",
+      "name": "test_checkout_can_be_cancelled_back_to_the_cart",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.305076599936001,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-CHK-004"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "checkout",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_catalogue_shows_every_product_with_its_details",
+      "name": "test_the_catalogue_shows_every_product_with_its_details",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.72998489998281,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-001"
+      ],
+      "suites": [
+        "regression",
+        "smoke"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (A to Z)-name-ascending]",
+      "name": "test_the_products_can_be_sorted[Name (A to Z)-name-ascending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.514518499956466,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Name (Z to A)-name-descending]",
+      "name": "test_the_products_can_be_sorted[Name (Z to A)-name-descending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.597481000004336,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    },
+    {
+      "nodeid": "tests/steps/test_inventory.py::test_the_products_can_be_sorted[Price (low to high)-price-ascending]",
+      "name": "test_the_products_can_be_sorted[Price (low to high)-price-ascending]",
+      "outcome": "passed",
+      "category": null,
+      "attempts": 1,
+      "duration": 6.065285499964375,
+      "message": "",
+      "exception_type": "",
+      "tms_ids": [
+        "TC-INV-002"
+      ],
+      "suites": [
+        "regression"
+      ],
+      "platforms": [],
+      "feature": "inventory",
+      "known_issue": "",
+      "quarantined": false,
+      "skip_reason": "",
+      "artifacts": {},
+      "worker": "main"
+    }
+  ]
+}
