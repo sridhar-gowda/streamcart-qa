@@ -1,0 +1,40 @@
+name: Set up Python and dependencies
+description: >-
+  Installs the locked dependencies with uv (uv.lock is the single source of pinned versions, resolved
+  for every supported OS and Python version) and puts the project environment on PATH, so later steps
+  call pytest, ruff, mypy or streamcart directly. Browsers are not installed here: GitHub-hosted
+  runners ship Chrome, Firefox and Edge, and Selenium Manager resolves the matching driver at run time.
+
+inputs:
+  python-version:
+    description: Python version to use
+    default: "3.12"
+  dev:
+    description: Also install the dev extra (ruff, mypy, import-linter, pytest-split)
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    - uses: astral-sh/setup-uv@v6
+      with:
+        python-version: ${{ inputs.python-version }}
+        enable-cache: true
+        cache-dependency-glob: uv.lock
+
+    - name: Install dependencies (locked)
+      shell: bash
+      run: |
+        if [ "${{ inputs.dev }}" = "true" ]; then
+          uv sync --frozen --extra dev
+        else
+          uv sync --frozen
+        fi
+        # The environment's scripts directory differs per OS; putting it on PATH keeps every
+        # later step a plain `pytest ...` / `ruff ...` call.
+        if [ "$RUNNER_OS" = "Windows" ]; then
+          echo "${GITHUB_WORKSPACE}\.venv\Scripts" >> "$GITHUB_PATH"
+        else
+          echo "${GITHUB_WORKSPACE}/.venv/bin" >> "$GITHUB_PATH"
+        fi
+        uv run --no-sync python -c "import streamcart, streamcart_pytest; print('streamcart-qa', streamcart.__version__)"

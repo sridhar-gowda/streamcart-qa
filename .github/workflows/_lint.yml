@@ -1,0 +1,33 @@
+# Static checks, as a template any workflow can call: lint (including the time.sleep and
+# automation-library containment bans), formatting, strict typing, and the layer contracts.
+# Templates are prefixed with `_`: they only run when called, never on their own.
+name: _lint
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        type: string
+        default: "3.12"
+
+jobs:
+  lint:
+    name: ruff · mypy · import-linter
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          python-version: ${{ inputs.python-version }}
+          dev: "true"
+      - name: uv lock --check (uv.lock matches pyproject.toml)
+        run: uv lock --check
+      - name: ruff (lint)
+        run: ruff check . --output-format=github
+      - name: ruff (format)
+        run: ruff format --check .
+      - name: mypy --strict
+        run: mypy
+      - name: import-linter (layer contracts)
+        run: lint-imports

@@ -1,0 +1,119 @@
+# The single entry point for every StreamCart test execution. Callers decide platform / target /
+# env / suite / runner; this workflow turns them into one pytest invocation, always uploads the
+# run directory, and never hides a result: the pytest exit code is the job's verdict.
+name: _run-tests
+
+on:
+  workflow_call:
+    inputs:
+      platform:
+        description: "Platform: web, android, ios, firetv, roku, appletv"
+        type: string
+        default: web
+      target:
+        description: "Execution target from config/target (chrome, firefox, edge, chrome-grid, pixel7-lab, roku-lab ...)"
+        type: string
+        default: chrome
+      env:
+        description: "Environment layer: dev, staging, prod"
+        type: string
+        default: dev
+      suite:
+        description: "smoke, regression, e2e — or 'all' for no suite filter"
+        type: string
+        default: all
+      runner:
+        description: "runs-on labels as a JSON array, e.g. '[\"self-hosted\",\"android-lab\"]'"
+        type: string
+        default: '["ubuntu-latest"]'
+      workers:
+        description: "xdist workers: auto, a number, or 0 for serial (one device = one session)"
+        type: string
+        default: auto
+      shards:
+        description: "Split the suite into N balanced shards (pytest-split)"
+        type: number
+        default: 1
+      shard:
+        description: "Which shard this job runs (1-based)"
+        type: number
+        default: 1
+      tms_plan:
+        description: "Run exactly the test cases of this TMS plan / test set"
+        type: string
+        default: ""
+      tms_upload:
+        description: "Publish results to the configured TMS at session end"
+        type: boolean
+        default: false
+      run_id:
+        description: "Correlation id shared by every shard of one run (default: GitHub run id + attempt)"
+        type: string
+        default: ""
+      extra_args:
+        description: "Extra pytest arguments"
+        type: string
+        default: ""
+    secrets:
+      SAUCE_PASSWORD:
+        required: false
+      TMS_TOKEN:
+        required: false
+
+jobs:
+  test:
+    name: ${{ inputs.platform }} / ${{ inputs.target }} / ${{ inputs.env }} / ${{ inputs.suite }} (${{ inputs.shard }}/${{ inputs.shards }})
+    runs-on: ${{ fromJSON(inputs.runner) }}
+    timeout-minutes: 60
+    env:
+      STREAMCART_RUN_ID: ${{ inputs.run_id != '' && inputs.run_id || format('gh-{0}-{1}', github.run_id, github.run_attempt) }}
+      STREAMCART_BUILD: ${{ github.sha }}
+      STREAMCART_USERS__DEFAULT__PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
+      STREAMCART_TMS__TOKEN: ${{ secrets.TMS_TOKEN }}
+      STREAMCART_TMS__PROVIDER: ${{ vars.TMS_PROVIDER }}
+      STREAMCART_TMS__BASE_URL: ${{ vars.TMS_BASE_URL }}
+      STREAMCART_TMS__PROJECT_KEY: ${{ vars.TMS_PROJECT_KEY }}
+      STREAMCART_TMS__UPLOAD: ${{ inputs.tms_upload }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup
+        with:
+          dev: ${{ inputs.shards > 1 && 'true' || 'false' }}   # pytest-split lives in the dev extra
+
+      - name: Run
+        shell: bash
+        run: |
+          args=(tests/steps --platform "${{ inputs.platform }}" --target "${{ inputs.target }}" --env "${{ inputs.env }}" -ra)
+          if [ "${{ inputs.workers }}" != "0" ]; then args+=(-n "${{ inputs.workers }}"); fi
+          if [ -n "${{ inputs.suite }}" ] && [ "${{ inputs.suite }}" != "all" ]; then args+=(--suite "${{ inputs.suite }}"); fi
+          if [ -n "${{ inputs.tms_plan }}" ]; then args+=(--tms-plan "${{ inputs.tms_plan }}"); fi
+          if [ "${{ inputs.shards }}" -gt 1 ]; then
+            args+=(--splits "${{ inputs.shards }}" --group "${{ inputs.shard }}" --durations-path tests/.test_durations)
+          fi
+          echo "pytest ${args[*]} ${{ inputs.extra_args }}"
+          pytest "${args[@]}" ${{ inputs.extra_args }}
+
+      # Allure's HTML is generated from the results by its CLI (Java). Rendered here so the
+      # uploaded run directory is complete: allure-report/index.html is a single file.
+      - name: Render Allure report
+        if: always() && inputs.platform == 'web'
+        shell: bash
+        run: |
+          npm install --global --silent allure-commandline@2 || { echo "::warning::Allure CLI unavailable"; exit 0; }
+          for results in reports/runs/*/allure-results; do
+            [ -d "$results" ] || continue
+            allure generate "$results" --clean --single-file -o "$(dirname "$results")/allure-report" || echo "::warning::allure generate failed for $results"
+          done
+
+      # Always: reports, junit, run-results and evidence survive failed and cancelled runs.
+      - name: Upload run directory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-${{ inputs.platform }}-${{ inputs.target }}-${{ inputs.env }}-shard${{ inputs.shard }}
+          path: reports/runs/
+          retention-days: 30
+          if-no-files-found: warn

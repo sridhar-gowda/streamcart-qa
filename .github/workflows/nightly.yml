@@ -1,0 +1,121 @@
+# The full picture, once a day: every browser, sharded; the device lab when one is registered;
+# the containerised path; then one aggregation step that merges shards per execution and
+# publishes to the TMS — one execution per (platform, target, env, run), never one per shard.
+name: Nightly regression
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  web:
+    name: web
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, firefox, edge]
+        shard: [1, 2]
+    uses: ./.github/workflows/_run-tests.yml
+    with:
+      platform: web
+      target: ${{ matrix.browser }}
+      env: staging
+      suite: regression
+      workers: auto
+      shards: 2
+      shard: ${{ matrix.shard }}
+      run_id: nightly-${{ github.run_id }}
+      tms_upload: false          # shards never publish; the aggregate job does, once
+    secrets: inherit
+
+  # Real devices need a runner next to them. A repository variable switches the lab on; until
+  # then this job is skipped rather than failing on a machine that does not exist.
+  device-lab:
+    name: device lab
+    if: vars.DEVICE_LAB == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { platform: android, target: pixel7-lab,  runner: '["self-hosted","android-lab"]' }
+          - { platform: firetv,  target: firetv-lab,  runner: '["self-hosted","android-lab"]' }
+          - { platform: roku,    target: roku-lab,    runner: '["self-hosted","roku-lab"]' }
+          - { platform: ios,     target: iphone-sim,  runner: '["self-hosted","macos-lab"]' }
+          - { platform: appletv, target: appletv-sim, runner: '["self-hosted","macos-lab"]' }
+    uses: ./.github/workflows/_run-tests.yml
+    with:
+      platform: ${{ matrix.platform }}
+      target: ${{ matrix.target }}
+      runner: ${{ matrix.runner }}
+      env: staging
+      suite: regression
+      workers: "0"               # one device, one session: parallelism comes from the matrix, not xdist
+      run_id: nightly-${{ github.run_id }}
+    secrets: inherit
+
+  # The same suite against a Selenium Grid service container — the path docker-compose uses locally.
+  containerised:
+    name: web / chrome-grid (service container)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      selenium:
+        image: selenium/standalone-chrome:4.27.0
+        ports: ["4444:4444"]
+        options: >-
+          --shm-size=2g
+          --health-cmd "curl -sf http://localhost:4444/status || exit 1"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      STREAMCART_RUN_ID: nightly-${{ github.run_id }}-grid
+      STREAMCART_USERS__DEFAULT__PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
+      STREAMCART_WEB__REMOTE_URL: http://localhost:4444
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pytest tests/steps --platform web --target chrome-grid --env staging --suite smoke -n 2 -ra
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-web-chrome-grid-staging
+          path: reports/runs/
+
+  aggregate:
+    name: aggregate shards and publish
+    needs: [web]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      STREAMCART_TMS__PROVIDER: ${{ vars.TMS_PROVIDER }}
+      STREAMCART_TMS__BASE_URL: ${{ vars.TMS_BASE_URL }}
+      STREAMCART_TMS__PROJECT_KEY: ${{ vars.TMS_PROJECT_KEY }}
+      STREAMCART_TMS__TOKEN: ${{ secrets.TMS_TOKEN }}
+      STREAMCART_TMS__UPLOAD: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: reports-web-*-staging-shard*
+          path: shards
+      - name: Merge shards per browser and publish one execution each
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports/nightly
+          for browser in chrome firefox edge; do
+            runs=$(find shards -path "*reports-web-${browser}-staging-shard*" -name run-results.json)
+            if [ -z "$runs" ]; then echo "::warning::no runs for ${browser}"; continue; fi
+            out="reports/nightly/run-results-${browser}.json"
+            # shellcheck disable=SC2086
+            streamcart merge-results $runs -o "$out"
+            if [ -n "${STREAMCART_TMS__PROVIDER:-}" ]; then
+              streamcart publish "$out" --platform web --target "$browser" --env staging || echo "::warning::publish failed for ${browser}"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nightly-results
+          path: reports/nightly/

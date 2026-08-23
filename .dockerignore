@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+.venv-lock
+.mypy_cache
+.ruff_cache
+.pytest_cache
+__pycache__
+*.pyc
+reports
+.env
+.env.*
+config/local.yaml
+docs
+*.md
+failure_simulation

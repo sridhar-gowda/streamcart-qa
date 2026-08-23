@@ -1,0 +1,44 @@
+# pre-commit install   — then every commit runs the same gates CI does.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.8.17
+    hooks:
+      - id: uv-lock       # uv.lock stays in step with pyproject.toml
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.4
+    hooks:
+      - id: ruff            # includes the time.sleep and selenium-containment bans (TID251)
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy --strict
+        entry: mypy
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: import-linter
+        name: import-linter (layer contracts)
+        entry: lint-imports
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: no-committed-secrets
+        name: .env must never be committed
+        entry: bash -c 'git diff --cached --name-only | grep -qxE "\.env(\..*)?" && echo ".env files are local only" && exit 1 || exit 0'
+        language: system
+        pass_filenames: false

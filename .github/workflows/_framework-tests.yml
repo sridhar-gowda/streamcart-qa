@@ -1,0 +1,37 @@
+# The framework's own tests (unit, contract, architecture, guardrails), as a template: no browser,
+# any OS. Reports go to reports/framework/ — separate from product runs by design.
+name: _framework-tests
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        description: "Runner image, e.g. ubuntu-latest or windows-latest"
+        type: string
+        default: ubuntu-latest
+      python-version:
+        type: string
+        default: "3.12"
+
+jobs:
+  framework-tests:
+    name: framework tests (${{ inputs.os }}, py${{ inputs.python-version }})
+    runs-on: ${{ inputs.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          python-version: ${{ inputs.python-version }}
+          dev: "true"
+      # Git Bash ships on GitHub's Windows images; one shell keeps the step identical across the OS matrix.
+      - name: Unit, contract, architecture and guardrail tests
+        shell: bash
+        run: pytest tests/framework --deselect tests/framework/integration -p no:cacheprovider -q --no-retry
+      - name: Upload framework run directory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: framework-tests-${{ inputs.os }}-py${{ inputs.python-version }}
+          path: reports/framework/
+          retention-days: 7

@@ -1,0 +1,23 @@
+# Every push to main: static checks and the framework's own tests across operating systems and
+# Python versions. Product scenarios are a PR's (pr-gate.yml) and the night's (nightly.yml) job.
+name: Quality
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    uses: ./.github/workflows/_lint.yml
+
+  framework-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.12"]
+    uses: ./.github/workflows/_framework-tests.yml
+    with:
+      os: ${{ matrix.os }}
+      python-version: ${{ matrix.python-version }}

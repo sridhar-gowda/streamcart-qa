@@ -1,0 +1,32 @@
+# What must be green before a change merges: the quality gates and the framework's own tests,
+# then the smoke suite on the default web target. Budget: under ten minutes end to end. The full
+# regression, other browsers and the device lab run nightly; they are not a PR's problem.
+name: PR gate
+
+on:
+  pull_request:
+  merge_group:
+
+concurrency:
+  group: pr-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: ./.github/workflows/_lint.yml
+
+  framework-tests:
+    uses: ./.github/workflows/_framework-tests.yml
+    with:
+      os: ubuntu-latest
+
+  smoke:
+    needs: [lint, framework-tests]
+    uses: ./.github/workflows/_run-tests.yml
+    with:
+      platform: web
+      target: chrome
+      env: dev
+      suite: smoke
+      workers: auto
+    secrets: inherit

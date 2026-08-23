@@ -1,0 +1,71 @@
+# Run anything, on demand: from the Actions UI (dropdowns) or programmatically through a
+# repository_dispatch event whose payload mirrors the inputs, so campaign tooling and other
+# pipelines can trigger and track a StreamCart run without a human in the loop.
+#
+#   curl -X POST -H "Authorization: Bearer $GH_TOKEN" \
+#     https://api.github.com/repos/<owner>/<repo>/dispatches \
+#     -d '{"event_type":"streamcart-run","client_payload":{"run_id":"campaign-42","inputs":{"platform":"web","target":"firefox","env":"staging","suite":"regression"}}}'
+name: Run on demand
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        type: choice
+        options: [web, android, ios, firetv, roku, appletv]
+        default: web
+      target:
+        description: "config/target name (chrome, firefox, edge, chrome-grid, browserstack, pixel7-lab, roku-lab ...)"
+        type: string
+        default: chrome
+      env:
+        type: choice
+        options: [dev, staging, prod]
+        default: dev
+      suite:
+        type: choice
+        options: [all, smoke, regression, e2e]
+        default: all
+      tms_plan:
+        description: "Run only the test cases of this TMS plan / test set"
+        type: string
+        default: ""
+      tms_upload:
+        type: boolean
+        default: false
+      workers:
+        description: "xdist workers (auto, a number, or 0 for serial)"
+        type: string
+        default: auto
+      runner:
+        description: "runs-on labels as a JSON array"
+        type: string
+        default: '["ubuntu-latest"]'
+      extra_args:
+        description: "Extra pytest arguments, e.g. -k checkout --headed"
+        type: string
+        default: ""
+  repository_dispatch:
+    types: [streamcart-run]
+
+run-name: >-
+  ${{ inputs.platform || github.event.client_payload.inputs.platform || 'web' }} /
+  ${{ inputs.target || github.event.client_payload.inputs.target || 'chrome' }} /
+  ${{ inputs.env || github.event.client_payload.inputs.env || 'dev' }}
+  by ${{ github.actor }}${{ github.event.client_payload.run_id && format(' ({0})', github.event.client_payload.run_id) || '' }}
+
+jobs:
+  run:
+    uses: ./.github/workflows/_run-tests.yml
+    with:
+      platform: ${{ inputs.platform || github.event.client_payload.inputs.platform || 'web' }}
+      target: ${{ inputs.target || github.event.client_payload.inputs.target || 'chrome' }}
+      env: ${{ inputs.env || github.event.client_payload.inputs.env || 'dev' }}
+      suite: ${{ inputs.suite || github.event.client_payload.inputs.suite || 'all' }}
+      tms_plan: ${{ inputs.tms_plan || github.event.client_payload.inputs.tms_plan || '' }}
+      tms_upload: ${{ inputs.tms_upload || github.event.client_payload.inputs.tms_upload == true || false }}
+      workers: ${{ inputs.workers || github.event.client_payload.inputs.workers || 'auto' }}
+      runner: ${{ inputs.runner || github.event.client_payload.inputs.runner || '["ubuntu-latest"]' }}
+      run_id: ${{ github.event.client_payload.run_id || '' }}
+      extra_args: ${{ inputs.extra_args || github.event.client_payload.inputs.extra_args || '' }}
+    secrets: inherit
